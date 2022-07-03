@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : localhost_3306
  Source Server Type    : MySQL
- Source Server Version : 50731
+ Source Server Version : 50721
  Source Host           : localhost:3306
- Source Schema         : my-springsecurity-plus
+ Source Schema         : da
 
  Target Server Type    : MySQL
- Target Server Version : 50731
+ Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 07/11/2020 20:05:45
+ Date: 03/07/2022 13:38:43
 */
 
 SET NAMES utf8mb4;
@@ -58,7 +58,7 @@ CREATE TABLE `my_dict`  (
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`dict_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of my_dict
@@ -80,7 +80,7 @@ CREATE TABLE `my_dict_detail`  (
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of my_dict_detail
@@ -126,7 +126,7 @@ CREATE TABLE `my_log`  (
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `exception_detail` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '异常详细信息',
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2760 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2809 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of my_log
@@ -189,6 +189,55 @@ INSERT INTO `my_log` VALUES (2756, 'admin', '192.168.31.244', '添加字典详�
 INSERT INTO `my_log` VALUES (2757, 'admin', '192.168.31.244', '查询字典列表', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myDict: MyDict(dictId=null, dictName=null, description=null, sort=null, createBy=null, updateBy=null) }', 'Chrome 8', 33, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DictController.getDictAll()', '2020-11-07 20:04:22', NULL);
 INSERT INTO `my_log` VALUES (2758, 'admin', '192.168.31.244', '查询岗位', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) jobQueryDto: JobQueryDto(queryName=null, queryStatus=null) }', 'Chrome 8', 6, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.JobController.getJobAll()', '2020-11-07 20:05:06', NULL);
 INSERT INTO `my_log` VALUES (2759, 'admin', '192.168.31.244', '查询字典列表', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myDict: MyDict(dictId=null, dictName=null, description=null, sort=null, createBy=null, updateBy=null) }', 'Chrome 8', 4, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DictController.getDictAll()', '2020-11-07 20:05:08', NULL);
+INSERT INTO `my_log` VALUES (2760, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 12, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:12:23', NULL);
+INSERT INTO `my_log` VALUES (2761, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 36, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:12:23', NULL);
+INSERT INTO `my_log` VALUES (2762, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:12:27', NULL);
+INSERT INTO `my_log` VALUES (2763, 'admin', '192.168.107.1', '添加用户', '{ myUser: MyUser(userId=9, deptId=1, userName=谭气睿, password=$2a$10$Qz0QFG8hVEMkSxIY6ZnV7upom3dcy6ts8pL7o03ADzD/BPk6wxwku, nickName=管理员2, phone=15665275065, email=2631916781@qq.com, status=1, roleId=1, jobIds=[1]) }', 'Chrome 10', 88, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.saveUser()', '2022-07-02 10:13:03', NULL);
+INSERT INTO `my_log` VALUES (2764, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:13:04', NULL);
+INSERT INTO `my_log` VALUES (2765, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 6, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:13:04', NULL);
+INSERT INTO `my_log` VALUES (2766, 'admin', '192.168.107.1', '删除用户', '{ userId: 9 }', 'Chrome 10', 16, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.deleteUser()', '2022-07-02 10:13:15', NULL);
+INSERT INTO `my_log` VALUES (2767, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:13:41', NULL);
+INSERT INTO `my_log` VALUES (2768, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 3, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:13:41', NULL);
+INSERT INTO `my_log` VALUES (2769, 'admin', '192.168.107.1', '修改用户状态', '{ myUser: MyUser(userId=6, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=1, roleId=null, jobIds=null) }', 'Chrome 10', 7, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.changeStatus()', '2022-07-02 10:13:47', NULL);
+INSERT INTO `my_log` VALUES (2770, 'admin', '192.168.107.1', '修改用户状态', '{ myUser: MyUser(userId=7, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=1, roleId=null, jobIds=null) }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.changeStatus()', '2022-07-02 10:13:49', NULL);
+INSERT INTO `my_log` VALUES (2771, 'admin', '192.168.107.1', '查询角色', '{ request: PageTableRequest(page=1, limit=10, offset=0) myRole: MyRole(roleId=null, roleName=null, dataScope=null, description=null) }', 'Chrome 10', 6, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.RoleController.roleList()', '2022-07-02 10:15:01', NULL);
+INSERT INTO `my_log` VALUES (2772, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:15:03', NULL);
+INSERT INTO `my_log` VALUES (2773, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 6, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:15:03', NULL);
+INSERT INTO `my_log` VALUES (2774, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 3, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:15:04', NULL);
+INSERT INTO `my_log` VALUES (2775, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:15:16', NULL);
+INSERT INTO `my_log` VALUES (2776, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:15:23', NULL);
+INSERT INTO `my_log` VALUES (2777, 'admin', '192.168.107.1', '添加用户', '{ myUser: MyUser(userId=10, deptId=1, userName=112, password=$2a$10$25ikBBiOUWiqq817nTln4OAXuPgy/erBoTFk15DVvkg7UtO0wkRcS, nickName=1123, phone=12345678901, email=2631916781@qq.com, status=1, roleId=2, jobIds=[1]) }', 'Chrome 10', 78, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.saveUser()', '2022-07-02 10:15:48', NULL);
+INSERT INTO `my_log` VALUES (2778, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:15:50', NULL);
+INSERT INTO `my_log` VALUES (2779, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 3, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:15:50', NULL);
+INSERT INTO `my_log` VALUES (2780, 'admin', '192.168.107.1', '删除用户', '{ userId: 10 }', 'Chrome 10', 15, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.deleteUser()', '2022-07-02 10:16:22', NULL);
+INSERT INTO `my_log` VALUES (2781, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:16:31', NULL);
+INSERT INTO `my_log` VALUES (2782, 'admin', '192.168.107.1', '添加用户', '{ myUser: MyUser(userId=11, deptId=5, userName=谭气睿, password=$2a$10$RrD4l0qfabm8seqSJNJoNOvy6OFP60tdwxANaqwf.OHwNP6Ofxca2, nickName=123, phone=15665275065, email=2631916781@qq.com, status=1, roleId=1, jobIds=[1]) }', 'Chrome 10', 87, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.saveUser()', '2022-07-02 10:16:44', NULL);
+INSERT INTO `my_log` VALUES (2783, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:16:46', NULL);
+INSERT INTO `my_log` VALUES (2784, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 14, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:16:46', NULL);
+INSERT INTO `my_log` VALUES (2785, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:16:53', NULL);
+INSERT INTO `my_log` VALUES (2786, 'admin', '192.168.107.1', '查询用户角色', '{ userId: 11 }', 'Chrome 10', 3, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.RoleUserController.getRoleUserByUserId()', '2022-07-02 10:16:53', NULL);
+INSERT INTO `my_log` VALUES (2787, 'admin', '192.168.107.1', '删除用户', '{ userId: 11 }', 'Chrome 10', 41, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.deleteUser()', '2022-07-02 10:17:23', NULL);
+INSERT INTO `my_log` VALUES (2788, 'admin', '192.168.107.1', '查询菜单', '{ queryName: null queryType: null }', 'Chrome 10', 4, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.MenuController.getMenuAll()', '2022-07-02 10:17:34', NULL);
+INSERT INTO `my_log` VALUES (2789, 'admin', '192.168.107.1', '绘制菜单树', '{ }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.MenuController.buildMenuAll()', '2022-07-02 10:17:37', NULL);
+INSERT INTO `my_log` VALUES (2790, 'admin', '192.168.107.1', '添加菜单', '{ myMenu: MyMenu(menuId=90, parentId=0, menuName=文章审核, icon=layui-icon , type=0, url=, permission=, sort=11) }', 'Chrome 10', 12, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.MenuController.savePermission()', '2022-07-02 10:17:52', NULL);
+INSERT INTO `my_log` VALUES (2791, 'admin', '192.168.107.1', '查询菜单', '{ queryName: null queryType: null }', 'Chrome 10', 0, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.MenuController.getMenuAll()', '2022-07-02 10:17:53', NULL);
+INSERT INTO `my_log` VALUES (2792, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:18:52', NULL);
+INSERT INTO `my_log` VALUES (2793, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:18:52', NULL);
+INSERT INTO `my_log` VALUES (2794, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:18:54', NULL);
+INSERT INTO `my_log` VALUES (2795, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:18:58', NULL);
+INSERT INTO `my_log` VALUES (2796, 'admin', '192.168.107.1', '添加用户', '{ myUser: MyUser(userId=12, deptId=1, userName=谭琪瑞, password=$2a$10$EzPpwW0/mVQVeSDcsw4T1uQRK0.vthkhICUFyJ.j5k3.nmLzO1qSu, nickName=123, phone=15665275065, email=2631916781@qq.com, status=1, roleId=1, jobIds=[1]) }', 'Chrome 10', 85, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.saveUser()', '2022-07-02 10:19:11', NULL);
+INSERT INTO `my_log` VALUES (2797, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 1, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:19:12', NULL);
+INSERT INTO `my_log` VALUES (2798, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 3, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:19:12', NULL);
+INSERT INTO `my_log` VALUES (2799, 'admin', '192.168.107.1', '查询角色', '{ request: PageTableRequest(page=1, limit=10, offset=0) myRole: MyRole(roleId=null, roleName=null, dataScope=null, description=null) }', 'Chrome 10', 3, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.RoleController.roleList()', '2022-07-02 10:19:19', NULL);
+INSERT INTO `my_log` VALUES (2800, 'admin', '192.168.107.1', '查询菜单', '{ queryName: null queryType: null }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.MenuController.getMenuAll()', '2022-07-02 10:19:20', NULL);
+INSERT INTO `my_log` VALUES (2801, 'admin', '192.168.107.1', '查询部门', '{ myDept: MyDept(deptId=null, parentId=null, ancestors=null, deptName=null, sort=null, status=null) }', 'Chrome 10', 2, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.getDeptAll()', '2022-07-02 10:19:23', NULL);
+INSERT INTO `my_log` VALUES (2802, 'admin', '192.168.107.1', '查询岗位', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) jobQueryDto: JobQueryDto(queryName=null, queryStatus=null) }', 'Chrome 10', 3, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.JobController.getJobAll()', '2022-07-02 10:19:24', NULL);
+INSERT INTO `my_log` VALUES (2803, 'admin', '192.168.107.1', '查询字典列表', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myDict: MyDict(dictId=null, dictName=null, description=null, sort=null, createBy=null, updateBy=null) }', 'Chrome 10', 6, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DictController.getDictAll()', '2022-07-02 10:19:25', NULL);
+INSERT INTO `my_log` VALUES (2804, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 16, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-02 10:27:12', NULL);
+INSERT INTO `my_log` VALUES (2805, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 40, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-02 10:27:12', NULL);
+INSERT INTO `my_log` VALUES (2806, 'admin', '192.168.107.1', '查询菜单', '{ queryName: null queryType: null }', 'Chrome 10', 10, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.MenuController.getMenuAll()', '2022-07-03 13:36:48', NULL);
+INSERT INTO `my_log` VALUES (2807, 'admin', '192.168.107.1', '绘制部门树', '{ deptDto: DeptDto(id=null, parentId=null, checkArr=0, title=null) }', 'Chrome 10', 21, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.DeptController.buildDeptAll()', '2022-07-03 13:37:49', NULL);
+INSERT INTO `my_log` VALUES (2808, 'admin', '192.168.107.1', '查询用户', '{ pageTableRequest: PageTableRequest(page=1, limit=10, offset=0) myUser: MyUser(userId=null, deptId=null, userName=null, password=null, nickName=null, phone=null, email=null, status=null, roleId=null, jobIds=null) }', 'Chrome 10', 35, 'INFO', 'com.codermy.myspringsecurityplus.admin.controller.UserController.userList()', '2022-07-03 13:37:49', NULL);
 
 -- ----------------------------
 -- Table structure for my_menu
@@ -206,7 +255,7 @@ CREATE TABLE `my_menu`  (
   `create_time` datetime(0) NOT NULL COMMENT '创建时间',
   `update_time` datetime(0) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 90 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 91 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of my_menu
@@ -254,6 +303,7 @@ INSERT INTO `my_menu` VALUES (86, 3, '字典管理', 'layui-icon layui-icon-form
 INSERT INTO `my_menu` VALUES (87, 86, '字典新增', 'layui-icon ', '', 'dict:add', 11, 2, '2020-11-07 14:46:21', '2020-11-07 14:46:21');
 INSERT INTO `my_menu` VALUES (88, 86, '字典修改', 'layui-icon ', '', 'dict:edit', 12, 2, '2020-11-07 14:46:52', '2020-11-07 14:46:52');
 INSERT INTO `my_menu` VALUES (89, 86, '字典删除', 'layui-icon ', '', 'dict:del', 13, 2, '2020-11-07 14:47:15', '2020-11-07 14:47:15');
+INSERT INTO `my_menu` VALUES (90, 0, '文章审核', 'layui-icon ', '', '', 11, 0, '2022-07-02 10:17:52', '2022-07-02 10:17:52');
 
 -- ----------------------------
 -- Table structure for my_role
@@ -348,6 +398,7 @@ INSERT INTO `my_role_menu` VALUES (1, 86);
 INSERT INTO `my_role_menu` VALUES (1, 87);
 INSERT INTO `my_role_menu` VALUES (1, 88);
 INSERT INTO `my_role_menu` VALUES (1, 89);
+INSERT INTO `my_role_menu` VALUES (1, 90);
 INSERT INTO `my_role_menu` VALUES (2, 1);
 INSERT INTO `my_role_menu` VALUES (2, 2);
 INSERT INTO `my_role_menu` VALUES (2, 3);
@@ -391,6 +442,7 @@ INSERT INTO `my_role_user` VALUES (5, 2);
 INSERT INTO `my_role_user` VALUES (6, 2);
 INSERT INTO `my_role_user` VALUES (7, 2);
 INSERT INTO `my_role_user` VALUES (8, 2);
+INSERT INTO `my_role_user` VALUES (12, 1);
 
 -- ----------------------------
 -- Table structure for my_user
@@ -408,7 +460,7 @@ CREATE TABLE `my_user`  (
   `create_time` datetime(0) NOT NULL COMMENT '创建时间',
   `update_time` datetime(0) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of my_user
@@ -418,9 +470,10 @@ INSERT INTO `my_user` VALUES (2, 2, 'test', '$2a$10$pAuzCLIe6Sl7kXfX6FEQ1uzM79V2
 INSERT INTO `my_user` VALUES (3, 2, 'test1', '$2a$10$exOfpFK2TNHnAdG/aaVTFeCDLihkg8JfD1qGWKjCOBdicxcQJax5W', '普通用户2', '13556336257', '1454564646@qq.com', 1, '2020-07-10 09:42:14', '2020-07-10 09:42:16');
 INSERT INTO `my_user` VALUES (4, 2, 'test2', '$2a$10$RR665iMnfCuYGY0Af344U.Fy3XmGcgjkURENW/Zea/oAEhuiLyjO.', '普通用户3', '13556336258', '1454564646@qq.com', 1, '2020-07-10 09:42:19', '2020-07-10 09:42:21');
 INSERT INTO `my_user` VALUES (5, 3, 'test3', '$2a$10$o0lZgmzReca24TP5viy/nOrPQty4jga1W.BG5SvgdeK9eprm.NoMa', '普通用户4', '13556336259', '1454564646@qq.com', 1, '2020-07-10 09:42:23', '2020-07-10 09:42:25');
-INSERT INTO `my_user` VALUES (6, 3, 'test4', '$2a$10$jNU1gXN.wAPhq5vUmLrCoeyDJbF3ReSnYQ2IulJA99drcMs1w1Som', '封禁用户', '13556336250', '1454564646@qq.com', 0, '2020-07-10 09:42:27', '2020-07-13 17:54:11');
-INSERT INTO `my_user` VALUES (7, 3, 'test5', '$2a$10$ADEBRX13Z9vvNxzdu/HiROaB1F7rYd5DHpE9UWeXtNOSbeB1tcWie', '封禁用户2', '13556336211', '1454564646@qq.com', 0, '2020-07-10 09:42:32', '2020-07-10 09:42:34');
+INSERT INTO `my_user` VALUES (6, 3, 'test4', '$2a$10$jNU1gXN.wAPhq5vUmLrCoeyDJbF3ReSnYQ2IulJA99drcMs1w1Som', '封禁用户', '13556336250', '1454564646@qq.com', 1, '2020-07-10 09:42:27', '2022-07-02 10:13:47');
+INSERT INTO `my_user` VALUES (7, 3, 'test5', '$2a$10$ADEBRX13Z9vvNxzdu/HiROaB1F7rYd5DHpE9UWeXtNOSbeB1tcWie', '封禁用户2', '13556336211', '1454564646@qq.com', 1, '2020-07-10 09:42:32', '2022-07-02 10:13:50');
 INSERT INTO `my_user` VALUES (8, 6, 'test6', '$2a$10$2aLbMBdNottSq13J.tfIF.5IFgTcDlWwOQI7btckzsq3vl2KtWOV6', '测试修改', '13556336253', '1454564646@qq.com', 1, '2020-07-10 09:42:36', '2020-10-01 14:24:19');
+INSERT INTO `my_user` VALUES (12, 1, '谭琪瑞', '$2a$10$EzPpwW0/mVQVeSDcsw4T1uQRK0.vthkhICUFyJ.j5k3.nmLzO1qSu', '123', '15665275065', '2631916781@qq.com', 1, '2022-07-02 10:19:11', '2022-07-02 10:19:11');
 
 -- ----------------------------
 -- Table structure for my_user_job
@@ -444,5 +497,6 @@ INSERT INTO `my_user_job` VALUES (6, 2);
 INSERT INTO `my_user_job` VALUES (7, 3);
 INSERT INTO `my_user_job` VALUES (8, 2);
 INSERT INTO `my_user_job` VALUES (8, 3);
+INSERT INTO `my_user_job` VALUES (12, 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
