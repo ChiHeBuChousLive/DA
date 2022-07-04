@@ -83,7 +83,8 @@
 						// 	value: "Bearer "+ restjson.jwt
 						// });
 						layer.msg(restjson.msg,{icon:1,time:1000},function () {
-							location.href = "/";
+							//这边直接跳到前端首页
+							location.href = "/main/index";
 						});
 					}else {
 						layer.msg(restjson.msg,{icon:2,time:1000},function () {
