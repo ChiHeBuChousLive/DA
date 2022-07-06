@@ -99,6 +99,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //security配置验证码过滤器
         http.addFilterBefore(verifyCodeFilter, UsernamePasswordAuthenticationFilter.class);
         //关闭csrf
         http.csrf().disable()
@@ -148,7 +149,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * 身份认证接口
+     * 身份认证接口，上面的一个config是授权
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
