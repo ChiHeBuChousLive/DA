@@ -40,8 +40,8 @@ spring:
         enabled: true #是否启用StatViewServlet默认值true
         url-pattern: /druid/*
         reset-enable: true
-        login-username: xiaodi8
-        login-password: 13884827185
+        login-username: admin
+        login-password: admin
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8

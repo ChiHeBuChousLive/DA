@@ -48,6 +48,15 @@ public interface UserDao {
      * @return
      */
     MyUser checkUsernameUnique(String userName);
+
+    /**
+     *  根据用户名查询用户
+     * @param userName
+     * @return
+     */
+    @Select("select * from my_user t where t.user_name = #{userName}")
+    MyUser getUser(String userName);
+
     /**
      * 更新用户
      * @param myUser
@@ -73,16 +82,6 @@ public interface UserDao {
      */
     @Delete("delete from my_user where user_id = #{userId}")
     int deleteUserById(Integer userId);
-
-
-
-    /**
-     *  根据用户名查询用户
-     * @param userName
-     * @return
-     */
-    @Select("select * from my_user t where t.user_name = #{userName}")
-    MyUser getUser(String userName);
 
 
 }

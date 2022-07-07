@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author codermy
- * @createTime 2020/8/19
+ * @createTime 2022/7/7
  */
 @Mapper
 public interface DeptDao {

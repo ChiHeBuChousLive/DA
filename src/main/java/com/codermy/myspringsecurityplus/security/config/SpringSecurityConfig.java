@@ -142,14 +142,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
     }
 
-
+        //密码加密
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(12);
     }
 
     /**
-     * 身份认证接口，上面的一个config是授权
+     * 身份认证接口，上面的一个config是授权，设置密码加密方式
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
