@@ -47,6 +47,14 @@ public interface UserService {
     String checkUserNameUnique(MyUser user);
 
     /**
+     * 通过邮箱查询用户
+     * @param user
+     * @return
+     */
+    String checkUserEmailUnique(MyUser user);
+
+
+    /**
      * 更新用户
      * @param myUser
      * @param roleId

@@ -20,6 +20,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.thymeleaf.util.ListUtils;
 
@@ -64,6 +65,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String checkPhoneUnique(MyUser myUser) {
+        //如果没有用户返回-1
         Integer userId = ObjectUtil.isEmpty(myUser.getUserId()) ? -1: myUser.getUserId();
         MyUser info = userDao.checkPhoneUnique(myUser.getPhone());
         if (ObjectUtil.isNotEmpty(info) && !info.getUserId().equals(userId))
@@ -83,8 +85,21 @@ public class UserServiceImpl implements UserService {
         }
         return UserConstants.USER_NAME_UNIQUE;
     }
+    @Override
+    public String  checkUserEmailUnique(MyUser myUser) {
+        //如果没有用户返回-1,通过id查询用户
+        Integer userId = ObjectUtil.isEmpty(myUser.getUserId()) ? -1: myUser.getUserId();
+
+        MyUser info = userDao.checkUserEmailUnique(myUser.getEmail());
+        if (ObjectUtil.isNotEmpty(info) && !info.getUserId().equals(userId))
+        {
+            return UserConstants.USER_NAME_NOT_UNIQUE;
+        }
+        return UserConstants.USER_NAME_UNIQUE;
+    }
 
     @Override
+    @Transactional
     public Result<MyUser> updateUser(MyUser myUser, Integer roleId) {
         if (roleId!=null){
             userDao.updateUser(myUser);
@@ -105,18 +120,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public int changeStatus(MyUser user) {
         return userDao.updateUser(user);
     }
 
     @Override
+    @Transactional
     public Result<MyUser> save(MyUser myUser, Integer roleId) {
         if(roleId!= null){
             userDao.save(myUser);
+            //这里吧role和user关联
             MyRoleUser myRoleUser = new MyRoleUser();
             myRoleUser.setRoleId(roleId);
             myRoleUser.setUserId(myUser.getUserId().intValue());
             roleUserDao.save(myRoleUser);
+            //岗位表关联
             insertUserPost(myUser);
             return Result.ok().message("添加成功，初始密码123456");
         }
@@ -125,6 +144,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public int deleteUser(Integer userId) {
         checkUserAllowed(new MyUser(userId));
         roleUserDao.deleteRoleUserByUserId(userId);
@@ -143,6 +163,7 @@ public class UserServiceImpl implements UserService {
      *
      * @param user 用户对象
      */
+    @Transactional
     public void insertUserPost(MyUser user)
     {
         Integer[] jobs = user.getJobIds();

@@ -3,14 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<title>注 册</title>
-	<link rel="stylesheet" href="component/pear/css/pear.css" />
-	<link rel="stylesheet" href="admin/css/other/login.css" />
+	<link rel="stylesheet" th:href="@{/component/pear/css/pear.css}" />
+	<link rel="stylesheet" th:href="@{/admin/css/other/login.css}" />
 </head>
 <!-- 代 码 结 构 -->
-<body background="admin/images/background2.svg" style="background-size: cover;">
+<body th:background="@{/admin/images/background2.svg}" style="background-size: cover;">
 <form class="layui-form" action="javascript:void(0);">
 	<div class="layui-form-item">
-		<img class="logo" src="admin/images/logo.png" />
+		<img class="logo" th:src="@{/admin/images/logo.png}" />
 		<div class="title">巍-辉</div>
 		<div class="desc">
 			为 您 提 供 最 好 的 不 良 资 产 服 务
@@ -43,8 +43,13 @@
 			注 册
 		</button>
 	</div>
+	<div class="layui-form-item">
+		<a href="/main/index">
+			返 回 主 页
+		</a>
+	</div>
 </form>
-<script src="component/layui/layui.js"></script>
+<script th:src="@{/component/layui/layui.js}"></script>
 <script>
 	layui.use(['form', 'element','jquery'], function() {
 		var form = layui.form;

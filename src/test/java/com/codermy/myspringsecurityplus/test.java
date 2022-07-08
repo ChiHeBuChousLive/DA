@@ -2,6 +2,8 @@ package com.codermy.myspringsecurityplus;
 
 import com.codermy.myspringsecurityplus.admin.dao.DeptDao;
 import com.codermy.myspringsecurityplus.admin.dto.DeptDto;
+import com.codermy.myspringsecurityplus.admin.entity.MyUser;
+import com.codermy.myspringsecurityplus.admin.service.UserService;
 import com.codermy.myspringsecurityplus.common.utils.TreeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import java.util.List;
 public class test {
     @Autowired
     private DeptDao deptDao;
+    @Autowired
+    private UserService userService;
 
 
     @Test
@@ -28,5 +32,12 @@ public class test {
         System.out.println(buildAll);
         List<DeptDto> tree = TreeUtil.deptTree(selectRoleDeptTree, buildAll);
         System.out.println(tree);
+
+        MyUser myUser=new MyUser();
+        myUser.setUserId(1);
+        myUser.setEmail("1454564646@qq.com");
+        System.out.println("===================================");
+        System.out.println(userService.checkUserEmailUnique(myUser));
+
     }
 }

@@ -1,4 +1,4 @@
-package com.codermy.myspringsecurityplus.admin.controller;
+package com.codermy.myspringsecurityplus.fore.controller;
 
 import com.codermy.myspringsecurityplus.admin.entity.MyUser;
 import com.codermy.myspringsecurityplus.admin.service.JobService;
@@ -9,12 +9,11 @@ import com.codermy.myspringsecurityplus.log.aop.MyLog;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/register")
@@ -27,7 +26,7 @@ public class RegisterController {
     @Autowired
     private JobService jobService;
 
-    @PostMapping
+    @PostMapping("/post")
     @ResponseBody
     @ApiOperation(value = "注册用户")
     @MyLog("注册用户")
@@ -42,6 +41,15 @@ public class RegisterController {
         myUser.setPassword(bCryptPasswordEncoder.encode("123456"));
         return userService.save(myUser,myUser.getRoleId());
     }
+
+    @GetMapping("")
+    @ApiOperation(value = "添加用户页面")
+    public String addUser(Model model){
+        model.addAttribute("myUser",new MyUser());
+        model.addAttribute("jobs",jobService.selectJobAll());
+        return "/register";
+    }
+
 
 
 
