@@ -1,6 +1,7 @@
 package com.codermy.myspringsecurityplus;
 
 import com.codermy.myspringsecurityplus.admin.dao.DeptDao;
+import com.codermy.myspringsecurityplus.admin.dao.UserDao;
 import com.codermy.myspringsecurityplus.admin.dto.DeptDto;
 import com.codermy.myspringsecurityplus.admin.entity.MyUser;
 import com.codermy.myspringsecurityplus.admin.service.UserService;
@@ -21,6 +22,8 @@ public class test {
     private DeptDao deptDao;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserDao userDao;
 
 
     @Test
@@ -32,12 +35,17 @@ public class test {
         System.out.println(buildAll);
         List<DeptDto> tree = TreeUtil.deptTree(selectRoleDeptTree, buildAll);
         System.out.println(tree);
-
+        //checkphontunique测试
         MyUser myUser=new MyUser();
         myUser.setUserId(1);
         myUser.setEmail("1454564646@qq.com");
+        myUser.setPhone("c");
         System.out.println("===================================");
-        System.out.println(userService.checkUserEmailUnique(myUser));
+        System.out.println(userService.checkPhoneUnique(myUser));
+        //userdao测试
+        System.out.println("====================");
+        System.out.println(userDao.checkUserEmailUnique("2631916781@qq.com"));
+
 
     }
 }

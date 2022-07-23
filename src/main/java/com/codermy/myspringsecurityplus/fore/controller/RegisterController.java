@@ -9,7 +9,6 @@ import com.codermy.myspringsecurityplus.log.aop.MyLog;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,16 +36,19 @@ public class RegisterController {
         if (UserConstants.USER_NAME_NOT_UNIQUE.equals(userService.checkUserNameUnique(myUser))){
             return Result.error().message("用户名已存在");
         }
+        if (UserConstants.USER_EMAIL_NOT_UNIQUE.equals(userService.checkUserEmailUnique(myUser))){
+            return Result.error().message("邮箱已存在");
+        }
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        myUser.setPassword(bCryptPasswordEncoder.encode("123456"));
-        return userService.save(myUser,myUser.getRoleId());
+        myUser.setPassword(bCryptPasswordEncoder.encode(myUser.getPassword()));
+        myUser.setStatus(1);
+        return userService.save(myUser,2);
     }
 
     @GetMapping("")
     @ApiOperation(value = "添加用户页面")
     public String addUser(Model model){
         model.addAttribute("myUser",new MyUser());
-        model.addAttribute("jobs",jobService.selectJobAll());
         return "/register";
     }
 

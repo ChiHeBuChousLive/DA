@@ -33,7 +33,7 @@ public class AdminController {
         Integer userId = jwtUserDto.getMyUser().getUserId();
         return menuService.getMenu(userId);
     }
-    
+
     @GetMapping("/console")
     @ApiOperation(value = "后台首页")
     public String console(){
@@ -63,5 +63,6 @@ public class AdminController {
     public String error500(){
         return "error/500";
     }
+
 
 }

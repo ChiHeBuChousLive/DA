@@ -93,9 +93,9 @@ public class UserServiceImpl implements UserService {
         MyUser info = userDao.checkUserEmailUnique(myUser.getEmail());
         if (ObjectUtil.isNotEmpty(info) && !info.getUserId().equals(userId))
         {
-            return UserConstants.USER_NAME_NOT_UNIQUE;
+            return UserConstants.USER_EMAIL_NOT_UNIQUE;
         }
-        return UserConstants.USER_NAME_UNIQUE;
+        return UserConstants.USER_EMAIL_UNIQUE;
     }
 
     @Override
@@ -137,7 +137,7 @@ public class UserServiceImpl implements UserService {
             roleUserDao.save(myRoleUser);
             //岗位表关联
             insertUserPost(myUser);
-            return Result.ok().message("添加成功，初始密码123456");
+            return Result.ok().message("注册成功！请前去登录");
         }
 
         return Result.error().message("添加失败");

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,25 +10,12 @@
     <div class="mainBox">
         <div class="main-container">
             <div class="main-container">
+                <input type="text" id="typeId" th:value="${ArticleType.typeId}" name="typeId" style="display:none;" autocomplete="off" class="layui-input">
                 <div class="layui-form-item">
                     <label class="layui-form-label">
-                        <span style="color: red">*</span>字典名称</label>
+                        <span style="color: red">*</span>岗位名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="dictName" th:value="${MyDict.dictName}" lay-verify="required" autocomplete="off" placeholder="请输入字典名称" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">
-                        字典描述</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="description" th:value="${MyDict.description}" lay-verify="required" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">
-                        <span style="color: red">*</span>排序</label>
-                    <div class="layui-input-block">
-                        <input type="text"  name="sort"th:value="${MyDict.sort}" lay-verify="sort" autocomplete="off" placeholder="请输入排序" class="layui-input">
+                        <input type="text" name="typeName" th:value="${ArticleType.typeName}" lay-verify="required" autocomplete="off" placeholder="请输入岗位名称" class="layui-input">
                     </div>
                 </div>
 
@@ -37,7 +24,7 @@
     </div>
     <div class="bottom">
         <div class="button-container">
-            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="" lay-filter="dict-save">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="" lay-filter="type-edit">
                 <i class="layui-icon layui-icon-ok"></i>
                 提交
             </button>
@@ -53,9 +40,9 @@
         let form = layui.form;
         let $ = layui.jquery;
 
-        form.on('submit(dict-save)', function(data){
+        form.on('submit(type-edit)', function(data){
             $.ajax({
-                url:'/api/dict',
+                url:'/api/article/type',
                 data:JSON.stringify(data.field),
                 dataType:'json',
                 contentType:'application/json',
@@ -64,7 +51,7 @@
                     if(result.success){
                         layer.msg(result.msg,{icon:1,time:1000},function(){
                             parent.layer.close(parent.layer.getFrameIndex(window.name));//关闭当前页
-                            parent.layui.table.reload("dict-");
+                            parent.layui.table.reload("type-table");
                         });
                     }else{
                         layer.msg(result.msg,{icon:2,time:1000});
