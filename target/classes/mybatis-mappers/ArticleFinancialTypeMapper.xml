@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codermy.myspringsecurityplus.admin.dao.ArticleFinancialTypeDao">
+    <sql id="selectFinancialTypeVo">
+        select t.financialType_id,t.financialType_name
+        from ms_item_financialtype t
+    </sql>
+
+    <select id="getFuzzyFinancialType" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleFinancialType">
+        <include refid="selectFinancialTypeVo"/>
+    </select>
+
+
+    <select id="checkFinancialTypeNameUnique" parameterType="String" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleFinancialType">
+        <include refid="selectFinancialTypeVo"/>
+        where t.financialType_name= #{financialTypeName} limit 1
+    </select>
+
+
+    <delete id="deleteFinancialTypeByIds" parameterType="integer">
+        delete from ms_item_financialType where financialType_id in
+        <foreach collection="array" item="financialTypeId" open="(" separator="," close=")">
+            #{financialTypeId}
+        </foreach>
+    </delete>
+
+
+    <select id="selectFinancialTypeAll" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleFinancialType">
+        <include refid="selectFinancialTypeVo"/>
+    </select>
+
+    <update id="updateFinancialType" parameterType="com.codermy.myspringsecurityplus.fore.entity.ArticleFinancialType">
+        update ms_item_financialType
+        <set>
+            <if test="FinancialTypeName != null and FinancialTypeName != ''">financialType_name = #{financialTypeName},</if>
+        </set>
+        where financialType_id = #{financialTypeId}
+    </update>
+</mapper>

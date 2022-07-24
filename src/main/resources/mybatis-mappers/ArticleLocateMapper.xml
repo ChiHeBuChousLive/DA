@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codermy.myspringsecurityplus.admin.dao.ArticleLocateDao">
+    <sql id="selectLocateVo">
+        select t.locate_id,t.locate_name
+        from ms_item_locate t
+    </sql>
+
+    <select id="getFuzzyLocate" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleLocate">
+        <include refid="selectLocateVo"/>
+    </select>
+
+
+    <select id="checkLocateNameUnique" parameterType="String" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleLocate">
+        <include refid="selectLocateVo"/>
+        where t.locate_name= #{locateName} limit 1
+    </select>
+
+
+    <delete id="deleteLocateByIds" parameterType="integer">
+        delete from ms_item_locate where locate_id in
+        <foreach collection="array" item="locateId" open="(" separator="," close=")">
+            #{locateId}
+        </foreach>
+    </delete>
+
+
+    <select id="selectLocateAll" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleLocate">
+        <include refid="selectLocateVo"/>
+    </select>
+
+    <update id="updateLocate" parameterType="com.codermy.myspringsecurityplus.fore.entity.ArticleLocate">
+        update ms_item_locate
+        <set>
+            <if test="locateName != null and locateName != ''">locate_name = #{locateName},</if>
+        </set>
+        where locate_id = #{locateId}
+    </update>
+</mapper>

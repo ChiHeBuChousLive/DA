@@ -10,12 +10,12 @@
     <div class="mainBox">
         <div class="main-container">
             <div class="main-container">
-                <input type="text" id="typeId" th:value="${ArticleType.typeId}" name="typeId" style="display:none;" autocomplete="off" class="layui-input">
+                <input type="text" id="financialTypeId" th:value="${ArticleFinancialType.financialTypeId}" name="financialTypeId" style="display:none;" autocomplete="off" class="layui-input">
                 <div class="layui-form-item">
                     <label class="layui-form-label">
                         <span style="color: red">*</span>岗位名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="typeName" th:value="${ArticleType.typeName}" lay-verify="required" autocomplete="off" placeholder="请输入岗位名称" class="layui-input">
+                        <input type="text" name="financialTypeName" th:value="${ArticleFinancialType.financialTypeName}" lay-verify="required" autocomplete="off" placeholder="请输入岗位名称" class="layui-input">
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
     </div>
     <div class="bottom">
         <div class="button-container">
-            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="" lay-filter="type-edit">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="" lay-filter="financialType-edit">
                 <i class="layui-icon layui-icon-ok"></i>
                 提交
             </button>
@@ -40,9 +40,9 @@
         let form = layui.form;
         let $ = layui.jquery;
 
-        form.on('submit(type-edit)', function(data){
+        form.on('submit(financialType-edit)', function(data){
             $.ajax({
-                url:'/api/article/type',
+                url:'/api/article/financialType',
                 data:JSON.stringify(data.field),
                 dataType:'json',
                 contentType:'application/json',
@@ -51,7 +51,7 @@
                     if(result.success){
                         layer.msg(result.msg,{icon:1,time:1000},function(){
                             parent.layer.close(parent.layer.getFrameIndex(window.name));//关闭当前页
-                            parent.layui.table.reload("type-table");
+                            parent.layui.table.reload("financialType-table");
                         });
                     }else{
                         layer.msg(result.msg,{icon:2,time:1000});

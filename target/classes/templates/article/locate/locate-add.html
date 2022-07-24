@@ -14,7 +14,7 @@
                     <label class="layui-form-label">
                         <span style="color: red">*</span>资产类型名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="typeName" th:value="${ArticleType.typeName}" lay-verify="required" autocomplete="off" placeholder="请输入岗位名称" class="layui-input">
+                        <input type="text" name="locateName" th:value="${ArticleLocate.locateName}" lay-verify="required" autocomplete="off" placeholder="请输入岗位名称" class="layui-input">
                     </div>
                 </div>
 
@@ -23,7 +23,7 @@
     </div>
     <div class="bottom">
         <div class="button-container">
-            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="" lay-filter="type-save">
+            <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="" lay-filter="locate-save">
                 <i class="layui-icon layui-icon-ok"></i>
                 提交
             </button>
@@ -39,9 +39,9 @@
         let form = layui.form;
         let $ = layui.jquery;
 
-        form.on('submit(type-save)', function(data){
+        form.on('submit(locate-save)', function(data){
             $.ajax({
-                url:'/api/article/type',
+                url:'/api/article/locate',
                 data:JSON.stringify(data.field),
                 dataType:'json',
                 contentType:'application/json',
@@ -50,7 +50,7 @@
                     if(result.success){
                         layer.msg(result.msg,{icon:1,time:1000},function(){
                             parent.layer.close(parent.layer.getFrameIndex(window.name));//关闭当前页
-                            parent.layui.table.reload("type-table");
+                            parent.layui.table.reload("locate-table");
                         });
                     }else{
                         layer.msg(result.msg,{icon:2,time:1000});
