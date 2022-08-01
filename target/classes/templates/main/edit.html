@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>NeuBizz | Blog Single Post | Bootstrap 4 Template by WebThemez</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="keywords" content="Bootstrap Theme, Freebies, UI Kit, MIT license">
+    <meta name="description" content="Bootstrap 4 Template by WebThemez">
+    <meta name="author" content="webthemez.com">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/font-awesome/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/slick-carousel/slick.css}">
+	<link th:href="@{/assets/vendors/ace-responsive-menu/ace-responsive-menu.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/assets/vendors/aos/aos.css}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" th:href="@{/assets/css/theme.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/styles.css}">
+	<！--编辑器 -->
+    <link rel="stylesheet" th:href="@{/edit/css/style.css}">
+	<！--pearadmin-->
+	<link rel="stylesheet" th:href="@{/component/pear/css/pear.css}" />
+	  <!--css-->
+      <style>
+          #editor—wrapper {
+              border: 1px solid #ccc;
+              z-index: 100; /* 按需定义 */
+          }
+          #toolbar-container { border-bottom: 1px solid #ccc; }
+          #editor-container { height: 500px; }
+      </style>
+  </head>
+<body>
+   <div class="hidden-xs hidden-sm nav-top bg-primary py-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="nav-top-contact">
+                <!-- Social links -->
+                <ul class="list-inline text-center text-md-left mb-0">
+                  <li class="list-inline-item mx-2" ><i class="fa fa-phone"></i> +1-1245-678-980</li>
+                  <li class="list-inline-item mx-2" ><i class="fa fa-envelope" aria-hidden="true"></i> info@yourdomain.com</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 text-right">
+                 <ul class="list-inline text-center text-md-right mb-0">
+				  <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Facebook">
+					<a target="_blank" href="https://www.facebook.com/Maxi">
+					  <i class="fab fa-facebook"></i>
+					</a>
+				  </li>
+				  <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Instagram">
+					<a target="_blank" href="https://www.instagram.com/Maxi">
+					  <i class="fab fa-instagram"></i>
+					</a>
+				  </li>
+				  <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Twitter">
+					<a target="_blank" href="https://twitter.com/Maxi">
+					  <i class="fab fa-twitter"></i>
+					</a>
+				  </li>
+				  <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Dribbble">
+					<a target="_blank" href="https://dribbble.com/Maxi">
+					  <i class="fab fa-dribbble"></i>
+					</a>
+				  </li>
+				</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Header -->
+    <header class="main-header">
+	<div class="container">
+			<div class="logo">
+					<a href="index.html">
+						 <h2><span>Neu</span>Bizz</h2>
+					  </a>
+				</div>
+			 <!-- Navbar -->
+				<nav class="mainNav">
+				<!-- Menu Toggle btn-->
+				<div class="menu-toggle">
+					<h3>Menu</h3>
+					<button type="button" id="menu-btn">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- Responsive Menu Structure-->
+				<!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+				<ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
+					 <li class="active">
+						<a href="index">
+							<span class="title">Home</span>
+						</a>
+					</li>
+					 <li>
+						<a href="about">
+							<span class="title">About Us</span>
+						</a>
+					</li>
+					 <li>
+						<a href="services">
+							<span class="title">Services</span>
+						</a>
+					</li>
+						<li>
+						<a href="javascript:;">
+							<span class="title">Pages</span>
+							<span class="arrow"></span> </a>
+						<!-- Level Two-->
+						<ul class="sub-menu" style="display: none;">
+							<li>
+								<a href="pricing">
+									<span class="title">Pricing</span>
+								</a>
+							</li>
+							<li>
+								<a href="portfolio">
+									<span class="title">Portfolio</span>
+								</a>
+							</li>
+							<li>
+								<a href="error">
+									<span class="title">404 Page</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="menu-active">
+						<a href="javascript:;" class="active">
+							<span class="title">Blog</span>
+							<span class="arrow"></span> </a>
+						<!-- Level Two-->
+						<ul class="sub-menu" style="display: none;">
+							<li>
+								<a href="blog" >Blog</a>
+							</li>
+							<li>
+								<a href="blog-single-post">Blog Single</a>
+							</li>
+						</ul>
+					</li>
+					<li class="last ">
+						<a href="contact">
+							<span class="title">Contact Us</span>
+						</a>
+					</li>
+				</ul>
+				</nav>
+				</div>
+    </header>
+	  <section class="wt-section bg-gray text-center inner-page-header">
+			<div class="container">
+				<div class="row justify-content-md-center align-items-center text-white py-4 py-lg-5">
+					<div class="col-md-7">
+						<div class="text-center">
+							<h1 class="display-sm-4 display-lg-3">文 章 提 交 页 面</h1>
+							<p class="sub-text">在这里提交你的文章</p>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</section>
+    <main role="main">
+<section class="wt-section">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-12">
+                <div class="blog-post">
+                    <h3 class="comment-reply-title mb-lg-5 mb-4">
+                        文章主体
+                    </h3>
+                    <div id="editor—wrapper">
+                        <div id="toolbar-container"><!-- 工具栏 --></div>
+                        <div id="editor-container"><!-- 编辑器 --></div>
+                    </div>
+                    <div class="meta font-lora mb-3">
+                        <a href="#">信息主体</a>
+                        <a href="#">这里填写您要发布信息的主体</a>
+                    </div>
+                </div>
+					<section class="wt-section mb-0 pb-0">
+					  <!--comments area start-->
+				<div class="comment-respond mb-lg-5 mb-4">
+                    <h3 class="comment-reply-title mb-lg-5 mb-4">
+                        文章信息
+                    </h3>
+                    <form role="form" class="layui-form" action="">
+                        <div class="row">
+                            <div class=" col-md-4">
+                                <div class="form-group">
+                                    <input type="text" name="title"  class="layui-input" placeholder="文章标题*"  lay-verify="title">
+                                </div>
+                            </div>
+                            <div class=" col-md-4">
+                                <div class="form-group ">
+                                    <input type="contact" name="contact" class="layui-input" placeholder="联系方式*" lay-verify="contact" >
+                                </div>
+                            </div>
+                            <div class=" col-md-4">
+                                <div class="form-group ">
+                                    <input type="text" name="area" class="layui-input" placeholder="面积*" lay-verify="area" >
+                                </div>
+                            </div>
+							<div class=" col-md-4">
+								<div class="form-group ">
+									<input type="text" name="preciseLocate" class="layui-input" placeholder="具体位置*" lay-verify="preciseLocate" >
+								</div>
+							</div>
+							<div class=" col-md-4">
+								<div class="form-group ">
+									<select name="locate" lay-verify="locate">
+										<option value="">请选择大概的位置</option>
+										<option value="010">奎文</option>
+										<option value="021">房子</option>
+										<option value="0571">围城</option>
+									</select>
+								</div>
+							</div>
+							<div class=" col-md-4">
+								<div class="form-group ">
+									<select name="financialType" lay-verify="financialType">
+										<option value="">请选择资产类型</option>
+										<option value="010">1</option>
+										<option value="021">2</option>
+										<option value="0571">3</option>
+									</select>
+								</div>
+							</div>
+							<div class=" col-md-4">
+								<div class="form-group ">
+									<select name="type" lay-verify="type">
+										<option value="">请选择财产类型</option>
+										<option value="010">1</option>
+										<option value="021">2</option>
+										<option value="0571">3</option>
+									</select>
+								</div>
+							</div>
+							<div class=" col-md-4">
+								<div class="form-group ">
+									<label class="layui-form-label">现状</label>
+									<input type="checkbox" name="" title="抵押" checked>
+									<input type="checkbox" name="" title="查封">
+									<input type="checkbox" name="" title="租赁">
+									<input type="checkbox" name="" title="其他">
+								</div>
+							</div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="controls">
+                                <textarea id="message"  name="summary" rows="5" placeholder="信息简介*" class="layui-textarea" lay-verify="summary"  ></textarea>
+                            </div>
+                        </div>
+                        <p class="text-muted">在这里填写您发布信息的主要内容 *</p>
+                        <div class="text-center mt-md-5">
+							<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        </div>
+                    </form>
+                </div>
+				</section>
+
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+
+    <!-- Footer -->
+<footer class="wt-section bg-dark main-footer">
+<div class="container">
+<div class="row">
+<div class=" col-sm-4 col-md col-sm-4 col-12 col mb-4">
+<h5 class="mb-4">Reach us</h5>
+
+<p><i class="fa fa-location-arrow mr-2"></i> #123, Manhatt 7 Avenu, NYC </p>
+<p><i class="fa fa-phone mr-2"></i>  +1-1234-567-987  </p>
+<p><i class="fa fa fa-envelope mr-2"></i> info@yourdomain.com  </p>
+
+
+</div>
+
+
+<div class="col-sm-4 col-md  col-6 col mb-4">
+<h5 class="mb-4">Site links</h5>
+
+<ul class="list-inline">
+<li class="list-block-item mx-2"><a href="#">Home</a></li>
+<li class="list-block-item mx-2"><a href="#">About Us</a></li>
+<li class="list-block-item mx-2"><a href="#">Services</a></li>
+<li class="list-block-item mx-2"><a href="#">Portfolio</a></li>
+<li class="list-block-item mx-2"><a href="#">Pricing</a></li>
+</ul>
+
+</div>
+
+
+<div class="col-sm-4 col-md  col-6 col mb-4">
+<h5 class="mb-4">Quick links</h5>
+
+<ul class="list-inline">
+<li class="list-block-item mx-2"><a href="#">Blog</a></li>
+<li class="list-block-item mx-2"><a href="#">Contact Us</a></li>
+<li class="list-block-item mx-2"><a href="#">Privacy Policy</a></li>
+<li class="list-block-item mx-2"><a href="http://webthemez.com">Terms & Conditions</a></li>
+</ul>
+
+</div>
+
+
+<div class="col-sm-4 col-md  col-12 col mb-4">
+<h5 class="mb-4">Follow us</h5>
+<ul class="social_footer_ul list-inline text-left mb-0">
+<li class="list-inline-item mx-2"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+<li class="list-inline-item mx-2"><a href="#"><i class="fab fa-twitter"></i></a></li>
+<li class="list-inline-item mx-2"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+<li class="list-inline-item mx-2"><a href="#"><i class="fab fa-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 pt-4">
+
+<p class="text-center copyrights"><a class="text-white" href="https://webthemez.com/free-bootstrap-templates/">Bootstrap Theme</a> by WebThemez. <br>© All Rights Reserved</p>
+</div>
+</div>
+</div>
+</footer>
+    <!-- End Footer -->
+
+    <!-- JS Script Files -->
+    <!-- Global Vendor -->
+    <script th:src="@{/assets/vendors/jquery.min.js}"></script>
+    <script th:src="@{/assets/vendors/jquery.migrate.min.js}"></script>
+    <script th:src="@{/assets/vendors/popper.min.js}"></script>
+    <script th:src="@{/assets/vendors/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/vendors/aos/aos.js}"></script>
+
+    <!-- Components Vendor  -->
+    <script th:src="@{/assets/vendors/slick-carousel/slick.min.js}"></script>
+	   <script th:src="@{/assets/vendors/ace-responsive-menu/ace-responsive-menu.js}"></script>
+
+    <!--Plugin Initialize-->
+    <script th:src="@{/assets/js/global.js}"></script>
+    <script th:src="@{/assets/vendors/carousel.js}"></script>
+
+   <!--layui-->
+    <script th:src="@{/component/layui/layui.js}"></script>
+    <script th:src="@{/component/pear/pear.js}"></script>
+
+    <!--文本编辑器-->
+    <script th:src="@{/edit/index.js}"></script>
+
+
+   <!--js编辑器代码-->
+   <script>
+       const { createEditor, createToolbar} = window.wangEditor
+
+       const editorConfig = {
+           placeholder: '文章内容...',
+           onChange(editor) {
+               const html = editor.getHtml()
+               console.log('editor content', html)
+               // 也可以同步到 <textarea>
+           }
+       }
+
+       const editor = createEditor({
+           selector: '#editor-container',
+           html: '<p><br></p>',
+           config: editorConfig,
+           mode: 'default', // or 'simple'
+       })
+
+       const toolbarConfig = {}
+
+	   //排除没用的工具栏
+	   toolbarConfig.excludeKeys = [
+		   'group-video', // 去掉视频工具栏
+	   ]
+
+
+
+	   const toolbar = createToolbar({
+           editor,
+           selector: '#toolbar-container',
+           config: toolbarConfig,
+           mode: 'default', // or 'simple'
+       })
+
+
+   </script>
+   <!--layui代码-->
+   <script>
+	   layui.use(['table','form','jquery'],function () {
+		   let form = layui.form;
+		   let $ = layui.jquery;
+		   let MODULE_PATH = "operate/";
+			//验证
+		   form.verify({
+			   title: function(value) {
+				   if (value.length <= 0 ) {
+					   return '文章标题不能为空';
+				   }
+			   },
+			   contact: function (value) {
+				   if (value.length <= 0) {
+					   return '联系方式不能为空';
+				   }
+			   },
+			   preciseLocate: function(value){
+				   if(value.length <= 0){
+					   return '具体地址不能为空';
+				   }
+			   },
+			   summary: function(value){
+				   if(value.length <= 0){
+					   return '信息简介不能为空';
+				   }
+			   },
+		   })
+
+		   form.on('switch(job-status)', function(obj) {
+			   layer.confirm(obj.elem.checked ? '确定要启用该岗位吗' : '确定要停用该岗位吗', {icon: 3, title: '提示'}, function (index) {
+				   layer.close(index);
+				   var status = obj.elem.checked ? 1 : 0;
+				   var data ={
+					   jobId: obj.value,
+					   status: status
+				   }
+				   let loading = layer.load();
+				   $.ajax({
+					   url:'/api/job/changeStatus',
+					   data:JSON.stringify(data),
+					   dataType:'json',
+					   contentType:'application/json',
+					   type:'put',
+					   success:function(result){
+						   layer.close(loading);
+						   if(result.success){
+							   layer.msg(result.msg,{icon:1,time:1000},function(){
+								   obj.del();
+							   });
+						   }else{
+							   layer.msg(result.msg,{icon:2,time:1000});
+						   }
+					   }
+				   })
+			   });
+		   });
+		   form.on('submit(job-query)', function(data){
+			   var formData = data.field;
+			   var name = formData.name;
+			   var status = formData.status;
+			   tableIns.reload({
+				   page: {
+					   curr: 1 //重新从第 1 页开始
+				   }
+				   , where: {//这里传参  向后台
+					   queryName: name,
+					   queryStatus: status
+					   //可传多个参数到后台...  ，分隔
+				   }
+				   , url: '/api/job'//后台做模糊搜索接口路径
+				   , method: 'get'
+			   });
+			   return false;
+		   });
+
+
+		   window.add = function(){
+			   layer.open({
+				   type: 2,
+				   title: '新增',
+				   shade: 0.1,
+				   area: ['500px', '500px'],
+				   content:  '/api/job/add'
+			   });
+		   }
+
+		   window.edit = function(obj){
+			   var data = obj.data;
+			   layer.open({
+				   type: 2,
+				   title: '修改',
+				   shade: 0.1,
+				   area: ['500px', '500px'],
+				   content:  '/api/job/edit/?jobId='+data.jobId
+			   });
+		   }
+
+		   window.remove = function(obj){
+			   layer.confirm('确定要删除该岗位吗？', {icon: 3, title:'提示'}, function(index){
+				   layer.close(index);
+				   let loading = layer.load();
+				   $.ajax({
+					   url: "/api/job?ids="+obj.data['jobId'],
+					   dataType:'json',
+					   type:'delete',
+					   success:function(result){
+						   layer.close(loading);
+						   if(result.success){
+							   layer.msg(result.msg,{icon:1,time:1000},function(){
+								   obj.del();
+							   });
+						   }else{
+							   layer.msg(result.msg,{icon:2,time:1000});
+						   }
+					   }
+				   })
+			   });
+		   }
+
+		   window.batchRemove = function(obj){
+			   let data = table.checkStatus(obj.config.id).data;
+			   if(data.length === 0){
+				   layer.msg("未选中数据",{icon:3,time:1000});
+				   return false;
+			   }
+			   let ids = "";
+			   for(let i = 0;i<data.length;i++){
+				   ids += data[i].jobId+",";
+			   }
+			   ids = ids.substr(0,ids.length-1);
+			   layer.confirm('确定删除这些岗位吗？', {icon: 3, title:'提示'}, function(index){
+				   layer.close(index);
+				   let loading = layer.load();
+				   $.ajax({
+					   url: "/api/job?ids="+ids,
+					   dataType:'json',
+					   type:'delete',
+					   success:function(result){
+						   layer.close(loading);
+						   if(result.success){
+							   layer.msg(result.msg,{icon:1,time:1000},function(){
+								   table.reload('job-table');
+							   });
+						   }else{
+							   layer.msg(result.msg,{icon:2,time:1000});
+						   }
+					   }
+				   })
+			   });
+		   }
+
+		   window.refresh = function(param){
+			   table.reload('job-table');
+		   }
+	   })
+   </script>
+
+
+
+
+    <!-- END JAVASCRIPTS -->
+  </body>
+</html>

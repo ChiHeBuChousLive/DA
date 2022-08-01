@@ -4,18 +4,29 @@ import lombok.Data;
 
 @Data
 public class Article {
-
+    //是否置顶
     public static final int Article_TOP = 1;
 
     public static final int Article_Common = 0;
 
+    //文章id
     private Long id;
-
+    //文章标题
     private String title;
-
+    //文章简介
     private String summary;
+    //精准地点
+    private String preciseLocate;
+    //联系方式
+    private String contact;
+    //地区
+    private String area;
 
 
+
+
+
+    //下面的时关联查询的内容
     /**
      * 作者id
      */
@@ -26,29 +37,17 @@ public class Article {
     private Long bodyId;
     //三类相似单选选项
     /**
-     *类别id
+     *类型id
      */
-    private Long categoryId;
+    private Long typeId;
     /**
-     *类别id2（）
+     * 财产类型id（）
      */
     private Long financialTypeId;
     /**
      *地区id（）
      */
     private Long locateID;
-    /**
-     *具体位置（）
-     */
-    private String preciseLocate;
-    /**
-     *联系方式（）
-     */
-    private String contact;
-    /**
-     *面积（）
-     */
-    private String area;
 
     /**
      * 置顶

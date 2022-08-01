@@ -1,7 +1,7 @@
 # DA
 
 #### Description
-给小律所写的宣传+后台网站，是我的第一个实用网站
+
 
 #### Software Architecture
 Software architecture description

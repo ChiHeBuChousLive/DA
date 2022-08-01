@@ -5,6 +5,7 @@ package com.codermy.myspringsecurityplus.common.utils;
 
 import com.codermy.myspringsecurityplus.admin.entity.MyUser;
 import com.codermy.myspringsecurityplus.common.exceptionhandler.MyException;
+import com.codermy.myspringsecurityplus.security.UserDetailsServiceImpl;
 import com.codermy.myspringsecurityplus.security.dto.JwtUserDto;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,8 +28,14 @@ public class SecurityUtils {
         if (authentication == null) {
             throw new MyException(ResultCode.UNAUTHORIZED, "当前登录状态过期");
         }
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        return userDetails.getUsername();
+        try {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            return userDetails.getUsername();
+        }catch (Exception e){
+            return authentication.getPrincipal().toString();
+        }
+
+
     }
     /**
      * 取得当前用户登录IP, 如果当前用户未登录则返回空字符串.
