@@ -53,6 +53,11 @@ public class RegisterController {
     }
 
 
+    @PostMapping("/test")
+    public Result currentUserName() {
+        return Result.ok();
+    }
+
 
 
 }

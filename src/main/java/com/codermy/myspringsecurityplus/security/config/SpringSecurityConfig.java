@@ -113,7 +113,18 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 //任何人都能访问这个请求
-                .antMatchers("/captcha","/register/**","/main/**").permitAll()
+                .antMatchers("/captcha",
+                        "/register/**",
+                        "/main/about",
+                        "/main/blog",
+                        "/main/blog-single-post",
+                        "/main/contact",
+                        "/main/error",
+                        "/main/index",
+                        "/main/favicon.ico",
+                        "/main/portfolio",
+                        "/main/pricing",
+                        "/main/services").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

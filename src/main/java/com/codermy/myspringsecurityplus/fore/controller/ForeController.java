@@ -68,10 +68,4 @@ public class ForeController {
         return "main/services";
     }
 
-    @GetMapping("/edit")
-    @ApiOperation(value = "文章编辑")
-    public String edit(){
-        return "main/edit";
-    }
-
 }

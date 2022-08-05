@@ -1,4 +1,7 @@
 package com.codermy.myspringsecurityplus.fore.dao;
 
-public class TagDao {
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface TagDao {
 }

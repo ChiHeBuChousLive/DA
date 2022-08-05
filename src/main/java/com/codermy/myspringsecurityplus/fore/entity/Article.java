@@ -26,11 +26,11 @@ public class Article {
 
 
 
-    //下面的时关联查询的内容
+    //下面的是关联查询的内容
     /**
      * 作者id
      */
-    private Long authorId;
+    private Integer authorId;
     /**
      * 内容id
      */
@@ -39,15 +39,20 @@ public class Article {
     /**
      *类型id
      */
-    private Long typeId;
+    private int typeId;
+    /**
+     *类型id
+     */
+    private int tagId;
+
     /**
      * 财产类型id（）
      */
-    private Long financialTypeId;
+    private int financialTypeId;
     /**
      *地区id（）
      */
-    private Long locateID;
+    private int locateId;
 
     /**
      * 置顶

@@ -1,4 +1,3 @@
-com\codermy\myspringsecurityplus\fore\controller\article\TypeController.class
 com\codermy\myspringsecurityplus\admin\service\impl\DictServiceImpl.class
 com\codermy\myspringsecurityplus\admin\controller\RoleController.class
 com\codermy\myspringsecurityplus\admin\dao\RoleDeptDao.class
@@ -33,7 +32,6 @@ com\codermy\myspringsecurityplus\admin\dao\RoleMenuDao.class
 com\codermy\myspringsecurityplus\admin\controller\DeptController.class
 com\codermy\myspringsecurityplus\common\exceptionhandler\GlobalExceptionHandler.class
 com\codermy\myspringsecurityplus\admin\controller\RoleUserController.class
-com\codermy\myspringsecurityplus\fore\dao\TypeDao.class
 com\codermy\myspringsecurityplus\log\utils\LogUtils.class
 com\codermy\myspringsecurityplus\log\dto\ErrorLogDto.class
 com\codermy\myspringsecurityplus\admin\service\impl\DictDetailServiceImpl.class
@@ -49,7 +47,6 @@ com\codermy\myspringsecurityplus\fore\controller\article\ArticleController.class
 com\codermy\myspringsecurityplus\admin\controller\article\ArticleTypeController.class
 com\codermy\myspringsecurityplus\admin\entity\MyUser.class
 com\codermy\myspringsecurityplus\admin\entity\MyRoleUser.class
-com\codermy\myspringsecurityplus\fore\controller\article\LocateController.class
 com\codermy\myspringsecurityplus\admin\service\impl\MenuServiceImpl.class
 com\codermy\myspringsecurityplus\admin\service\ArticleFinancialTypeService.class
 com\codermy\myspringsecurityplus\admin\dto\UserQueryDto.class
@@ -58,7 +55,6 @@ com\codermy\myspringsecurityplus\MySpringsecurityPlusApplication.class
 com\codermy\myspringsecurityplus\security\handler\MyAuthenticationSuccessHandler.class
 com\codermy\myspringsecurityplus\admin\controller\MenuController.class
 com\codermy\myspringsecurityplus\log\aspect\LogAspect.class
-com\codermy\myspringsecurityplus\fore\dao\FinancialTypeDao.class
 com\codermy\myspringsecurityplus\security\UserDetailsServiceImpl.class
 com\codermy\myspringsecurityplus\log\service\impl\MyLogServiceImpl.class
 com\codermy\myspringsecurityplus\security\handler\MyAuthenticationFailureHandler.class
@@ -76,7 +72,6 @@ com\codermy\myspringsecurityplus\admin\aspectj\DataScopeAspect.class
 com\codermy\myspringsecurityplus\log\utils\RequestHolder.class
 com\codermy\myspringsecurityplus\admin\entity\MyUser$Status.class
 com\codermy\myspringsecurityplus\admin\service\impl\RoleServiceImpl.class
-com\codermy\myspringsecurityplus\fore\dao\LocateDao.class
 com\codermy\myspringsecurityplus\common\utils\PageTableRequest.class
 com\codermy\myspringsecurityplus\admin\dao\DictDao.class
 com\codermy\myspringsecurityplus\admin\service\impl\RoleUserServiceImpl.class
@@ -103,7 +98,6 @@ com\codermy\myspringsecurityplus\admin\dao\DictDetailDao.class
 com\codermy\myspringsecurityplus\admin\service\DeptService.class
 com\codermy\myspringsecurityplus\admin\dao\DeptDao.class
 com\codermy\myspringsecurityplus\admin\entity\MyRole.class
-com\codermy\myspringsecurityplus\fore\controller\article\FinancialTypeController.class
 com\codermy\myspringsecurityplus\fore\dao\ArticleBodyDao.class
 com\codermy\myspringsecurityplus\admin\dao\UserJobDao.class
 com\codermy\myspringsecurityplus\admin\entity\MyDictDetail.class
