@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codermy.myspringsecurityplus.fore.dao.ArticleTagDao">
+    <sql id="selectArticleTagVo">
+        select a.id,a.article_id,a.tag_id
+        from ms_article__tag a
+    </sql>
+
+    <select id="getFuzzyArticleTag" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleTag">
+        <include refid="selectArticleTagVo"/>
+    </select>
+
+    <insert id="insertArticleTag">
+        INSERT INTO ms_article_tag(id,article_id,tag_id)
+        values(#{id},#{articleId},#{tagId})
+    </insert>
+
+
+    <delete id="deleteArticleTagByIds" parameterType="integer">
+        delete from ms_article__tag where article_id in
+        <foreach collection="array" item="articleId" open="(" separator="," close=")">
+            #{articleId}
+        </foreach>
+    </delete>
+
+
+
+
+    <select id="selectArticleTagAll" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleTag">
+        <include refid="selectArticleTagVo"/>
+    </select>
+
+</mapper>

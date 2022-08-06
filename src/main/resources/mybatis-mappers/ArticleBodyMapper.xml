@@ -9,9 +9,9 @@
     </sql>
 
 
-    <insert id="insertArticleBody" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO ms_article_save(body_id,content,content_html,article_id,)
-        values(#{bodyId},#{content},#{contentHtml}, #{articleId}} )
+    <insert id="insertArticleBody" parameterType="com.codermy.myspringsecurityplus.fore.entity.ArticleBody" useGeneratedKeys="true" keyProperty="bodyId">
+        INSERT INTO ms_article_body(body_id,content,content_html)
+        values(#{bodyId},#{content},#{contentHtml})
     </insert>
 
 

@@ -18,7 +18,7 @@ public interface ArticleDao {
      * @param article 文章信息
      * @return 结果
      */
-    int insertArticle(Article article);
+    int insertArticleSave(Article article);
 
 //
 //    /**

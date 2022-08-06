@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class Tag {
 
-    private Long tagId;
+    private int tagId;
 
     private String tagName;
 

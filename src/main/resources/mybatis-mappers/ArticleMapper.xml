@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.codermy.myspringsecurityplus.fore.dao.ArticleDao">
-    <sql id="selectArticleVo">
+    <sql id="selectArticleSaveVo">
         select a.article_id,a.create_date,a.summary,a.title,a.weight,
                a.author_id,a.body_id,a.type_id,a.financialtype_id,
                a.locate_id,a.precise_location,a.contact,a.area
@@ -11,7 +11,7 @@
     </sql>
 
 
-    <insert id="insertArticle" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertArticleSave" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO ms_article_save(article_id,create_date,summary,title,
                                     weight,author_id,body_id,type_id,financialtype_id,
                                     locate_id,precise_location,contact,area)

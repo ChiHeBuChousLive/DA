@@ -10,5 +10,5 @@ public class ArticleTag {
 
     private Long articleId;
 
-    private Long tagId;
+    private int tagId;
 }

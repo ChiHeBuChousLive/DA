@@ -40,10 +40,6 @@ public class Article {
      *类型id
      */
     private int typeId;
-    /**
-     *类型id
-     */
-    private int tagId;
 
     /**
      * 财产类型id（）

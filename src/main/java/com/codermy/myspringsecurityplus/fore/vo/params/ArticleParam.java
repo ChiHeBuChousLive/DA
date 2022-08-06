@@ -10,8 +10,6 @@ public class ArticleParam {
 
     private Long id;
 
-    private ArticleBody body;
-
     //三个单选框
     private int type;
 
@@ -32,9 +30,9 @@ public class ArticleParam {
 
     private String preciseLocate;
 
-    private String search;
+    //private String search;
 
-    //下面的时articleBody的数据
+    //下面的是articleBody的数据
     private String content;
 
     private String contentHtml;
