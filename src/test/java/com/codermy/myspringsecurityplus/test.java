@@ -1,10 +1,7 @@
 package com.codermy.myspringsecurityplus;
 
-import com.codermy.myspringsecurityplus.admin.entity.MyUser;
 import com.codermy.myspringsecurityplus.admin.service.UserService;
-import com.codermy.myspringsecurityplus.common.utils.SecurityUtils;
-import com.codermy.myspringsecurityplus.fore.dao.ArticleDao;
-import com.codermy.myspringsecurityplus.fore.entity.ArticleBody;
+import com.codermy.myspringsecurityplus.fore.dao.ArticleSaveDao;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleTag;
 import com.codermy.myspringsecurityplus.fore.service.ArticleBodyService;
 import com.codermy.myspringsecurityplus.fore.service.ArticleTagService;
@@ -21,7 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class test {
     @Autowired
-    private ArticleDao articleDao;
+    private ArticleSaveDao articleSaveDao;
     @Autowired
     private ArticleBodyService articleBodyService;
     @Autowired

@@ -1,13 +1,10 @@
 package com.codermy.myspringsecurityplus.fore.entity;
 
+import com.codermy.myspringsecurityplus.admin.entity.BaseEntity;
 import lombok.Data;
 
 @Data
-public class Article {
-    //是否置顶
-    public static final int Article_TOP = 1;
-
-    public static final int Article_Common = 0;
+public class Article extends BaseEntity {
 
     //文章id
     private Long id;
@@ -19,7 +16,7 @@ public class Article {
     private String preciseLocate;
     //联系方式
     private String contact;
-    //地区
+    //面积
     private String area;
 
 

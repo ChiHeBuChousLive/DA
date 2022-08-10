@@ -2,9 +2,7 @@ package com.codermy.myspringsecurityplus.fore.service.impl;
 
 import cn.hutool.core.convert.Convert;
 import com.codermy.myspringsecurityplus.common.exceptionhandler.MyException;
-import com.codermy.myspringsecurityplus.fore.dao.ArticleDao;
 import com.codermy.myspringsecurityplus.fore.dao.ArticleTagDao;
-import com.codermy.myspringsecurityplus.fore.entity.Article;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleTag;
 import com.codermy.myspringsecurityplus.fore.service.ArticleTagService;
 import org.springframework.beans.factory.annotation.Autowired;

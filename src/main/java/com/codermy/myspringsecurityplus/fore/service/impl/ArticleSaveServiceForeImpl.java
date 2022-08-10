@@ -3,12 +3,12 @@ package com.codermy.myspringsecurityplus.fore.service.impl;
 import com.codermy.myspringsecurityplus.admin.entity.MyUser;
 import com.codermy.myspringsecurityplus.admin.service.UserService;
 import com.codermy.myspringsecurityplus.common.utils.SecurityUtils;
-import com.codermy.myspringsecurityplus.fore.dao.ArticleDao;
+import com.codermy.myspringsecurityplus.fore.dao.ArticleSaveDao;
 import com.codermy.myspringsecurityplus.fore.entity.Article;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleBody;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleTag;
 import com.codermy.myspringsecurityplus.fore.service.ArticleBodyService;
-import com.codermy.myspringsecurityplus.fore.service.ArticleService;
+import com.codermy.myspringsecurityplus.fore.service.ArticleSaveForeService;
 import com.codermy.myspringsecurityplus.fore.service.ArticleTagService;
 import com.codermy.myspringsecurityplus.fore.vo.params.ArticleParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
  * @createTime 2020/8/19
  */
 @Service
-public class ArticleServiceImpl implements ArticleService {
+public class ArticleSaveServiceForeImpl implements ArticleSaveForeService {
     @Autowired
-    private ArticleDao articleDao;
+    private ArticleSaveDao articleSaveDao;
     @Autowired
     private ArticleBodyService articleBodyService;
     @Autowired
@@ -33,13 +33,18 @@ public class ArticleServiceImpl implements ArticleService {
     //插入文章
     @Override
     @Transactional
-    public int insertArticle(Article article) {
-        return articleDao.insertArticleSave(article);
+    public int insertArticleSave(Article article) {
+        return articleSaveDao.insertArticleSave(article);
     }
 
     @Override
     @Transactional
-    public int insertArticleSave(ArticleParam articleParam) {
+    public int publicArticleSave(ArticleParam articleParam) {
+
+        if (articleParam.getContent().length()<=50){
+            System.out.println(articleParam.getContent().length());
+            return 0;
+        };
         //articleBody添加
         //注意！我们在articleBody的mapper里设置了添加完成后自动设置uuid和返回
         //主键id的配置useGeneratedKeys="true" keyProperty="id"
@@ -71,7 +76,7 @@ public class ArticleServiceImpl implements ArticleService {
         MyUser myUser=userService.getUserByName(SecurityUtils.getCurrentUsername());
         article.setAuthorId(myUser.getUserId());
 
-        articleDao.insertArticleSave(article);
+        articleSaveDao.insertArticleSave(article);
         //tag
         int[] tags=articleParam.getTags();
 
