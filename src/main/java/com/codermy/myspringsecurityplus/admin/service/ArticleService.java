@@ -1,10 +1,11 @@
 package com.codermy.myspringsecurityplus.admin.service;
 
+import com.codermy.myspringsecurityplus.admin.dto.ArticleDto;
 import com.codermy.myspringsecurityplus.admin.dto.ArticleQueryDto;
 import com.codermy.myspringsecurityplus.common.exceptionhandler.MyException;
 import com.codermy.myspringsecurityplus.common.utils.Result;
 import com.codermy.myspringsecurityplus.fore.entity.Article;
-import com.codermy.myspringsecurityplus.fore.vo.params.ArticleParam;
+import com.codermy.myspringsecurityplus.fore.vo.ArticleVo;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface ArticleService {
      * @param articleQueryDto
      * @return
      */
-    Result<Article> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto);
+    Result<ArticleDto> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto);
 
     /**
      * 新增文章信息

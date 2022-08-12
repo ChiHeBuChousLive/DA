@@ -1,12 +1,9 @@
 package com.codermy.myspringsecurityplus.admin.service;
 
-import com.codermy.myspringsecurityplus.admin.dao.ArticleTypeDao;
-import com.codermy.myspringsecurityplus.admin.dto.JobQueryDto;
-import com.codermy.myspringsecurityplus.admin.entity.MyJob;
 import com.codermy.myspringsecurityplus.common.exceptionhandler.MyException;
 import com.codermy.myspringsecurityplus.common.utils.Result;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleType;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import java.util.List;
 

@@ -61,7 +61,7 @@ public class ArticleSaveServiceForeImpl implements ArticleSaveForeService {
         //id在插入数据库的时候自己添加
         article.setTitle(articleParam.getTitle());
         article.setSummary(articleParam.getSummary());
-        article.setPreciseLocate(articleParam.getPreciseLocate());
+        article.setPreciseLocation(articleParam.getPreciseLocation());
         article.setContact(articleParam.getContact());
         article.setArea(articleParam.getArea());
         //article.setAuthorId();
@@ -82,7 +82,7 @@ public class ArticleSaveServiceForeImpl implements ArticleSaveForeService {
 
         ArticleTag articleTag=new ArticleTag();
         for (int tag : tags) {
-            articleTag.setArticleId(article.getId());
+            articleTag.setArticleId(article.getArticleId());
             articleTag.setTagId(tag);
             articleTagService.insertArticleTag(articleTag);
         }

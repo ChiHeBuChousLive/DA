@@ -1,9 +1,7 @@
 package com.codermy.myspringsecurityplus.fore.vo.params;
 
-import com.codermy.myspringsecurityplus.fore.entity.*;
 import lombok.Data;
 
-import java.util.List;
 
 @Data
 public class ArticleParam {
@@ -28,7 +26,7 @@ public class ArticleParam {
 
     private String area;
 
-    private String preciseLocate;
+    private String preciseLocation;
 
     //private String search;
 

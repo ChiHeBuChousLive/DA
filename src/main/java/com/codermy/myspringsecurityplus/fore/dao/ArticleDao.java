@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Mapper
@@ -39,7 +40,7 @@ public interface ArticleDao {
      * @param ids 需要删除的数据ID
      * @return 结果
      */
-    int deleteArticleByIds(Integer[] ids);
+    int deleteArticleByIds(Long[] ids);
 
 //    /**
 //     * 根据用户ID查询文章

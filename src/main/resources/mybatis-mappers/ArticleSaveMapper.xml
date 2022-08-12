@@ -11,12 +11,12 @@
     </sql>
 
 
-    <insert id="insertArticleSave" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertArticleSave" useGeneratedKeys="true" keyProperty="articleId">
         INSERT INTO ms_article_save(article_id,create_date,summary,title,
                                     weight,author_id,body_id,type_id,financialtype_id,
                                     locate_id,precise_location,contact,area)
-        values(#{id},now(),#{summary},#{title}, #{weight},#{authorId},#{bodyId},#{typeId},#{financialTypeId},
-               #{locateId},#{preciseLocate}, #{contact},#{area} )
+        values(#{articleId},now(),#{summary},#{title}, #{weight},#{authorId},#{bodyId},#{typeId},#{financialTypeId},
+               #{locateId},#{preciseLocation}, #{contact},#{area} )
     </insert>
 
 

@@ -1,18 +1,26 @@
 package com.codermy.myspringsecurityplus.admin.service.impl;
 
 import cn.hutool.core.convert.Convert;
+import com.codermy.myspringsecurityplus.admin.dto.ArticleDto;
 import com.codermy.myspringsecurityplus.admin.dto.ArticleQueryDto;
+import com.codermy.myspringsecurityplus.admin.service.ArticleFinancialTypeService;
+import com.codermy.myspringsecurityplus.admin.service.ArticleLocateService;
+import com.codermy.myspringsecurityplus.admin.service.ArticleTypeService;
 import com.codermy.myspringsecurityplus.common.exceptionhandler.MyException;
 import com.codermy.myspringsecurityplus.common.utils.Result;
 import com.codermy.myspringsecurityplus.common.utils.ResultCode;
 import com.codermy.myspringsecurityplus.fore.dao.ArticleDao;
 import com.codermy.myspringsecurityplus.fore.entity.Article;
 import com.codermy.myspringsecurityplus.admin.service.ArticleService;
+import com.codermy.myspringsecurityplus.fore.entity.ArticleFinancialType;
+import com.codermy.myspringsecurityplus.fore.vo.ArticleVo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,22 +31,54 @@ import java.util.List;
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
     ArticleDao articleDao;
+    @Autowired
+    ArticleTypeService articleTypeService;
+    @Autowired
+    ArticleFinancialTypeService articleFinancialTypeService;
+    @Autowired
+    ArticleLocateService articleLocateService;
+
 
     @Override
-    public Result<Article> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto) {
+    public Result<ArticleDto> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto) {
         Page page = PageHelper.offsetPage(offectPosition,limit);
         List<Article> fuzzyArticle = articleDao.getFuzzyArticle(articleQueryDto);
-        return Result.ok().count(page.getTotal()).data(fuzzyArticle).code(ResultCode.TABLE_SUCCESS);
+        List<ArticleDto> fuzzyArticleDto=new ArrayList<ArticleDto>();
+        ArticleDto articleDto=new ArticleDto();
+        for (Article article : fuzzyArticle) {
+            //相同查询
+            //id从long转换成Integar
+            articleDto.setArticleId(article.getArticleId());
+            articleDto.setTitle(article.getTitle());
+            articleDto.setAuthorId(article.getAuthorId());
+
+            articleDto.setCreateDate(article.getCreateDate());
+            articleDto.setWeight(article.getWeight());
+            articleDto.setPreciseLocation(article.getPreciseLocation());
+            articleDto.setContact(article.getContact());
+            articleDto.setArea(article.getArea());
+            //关联查询
+            articleDto.setType(articleTypeService.getTypeById(article.getTypeId()).getTypeName());
+            articleDto.setLocate(articleLocateService.getLocateById(article.getLocateId()).getLocateName());
+            articleDto.setFinancialType(articleFinancialTypeService.getFinancialTypeById(article.getFinancialTypeId()).getFinancialTypeName());
+            fuzzyArticleDto.add(articleDto);
+
+        }
+
+        return Result.ok().count(page.getTotal()).data(fuzzyArticleDto).code(ResultCode.TABLE_SUCCESS);
     }
 
     @Override
+    @Transactional
     public int insertArticle(Article article) {
         return articleDao.insertArticle(article);
     }
 
     @Override
+    @Transactional
     public int deleteArticleByIds(String ids) throws MyException {
-        Integer[] articleIds = Convert.toIntArray(ids);
+        System.out.println(ids);
+        Long[] articleIds= Convert.toLongArray(ids);
         return articleDao.deleteArticleByIds(articleIds);
     }
 
