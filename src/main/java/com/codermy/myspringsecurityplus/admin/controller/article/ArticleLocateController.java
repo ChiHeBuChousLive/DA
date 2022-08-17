@@ -78,7 +78,7 @@ public class ArticleLocateController {
     @ApiOperation(value = "修改地区类型页面")
     public String editLocate(Model model, ArticleLocate locate) {
         //这里转化成Integar，前台和后台的数据结构有点不一样
-        model.addAttribute("ArticleLocate",articleLocateService.getLocateById(locate.getLocateId().intValue()));
+        model.addAttribute("ArticleLocate",articleLocateService.getLocateById(locate.getLocateId()));
         return "article/locate/locate-edit";
     }
     @PutMapping

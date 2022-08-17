@@ -3,6 +3,7 @@ import com.codermy.myspringsecurityplus.admin.dto.ArticleQueryDto;
 import com.codermy.myspringsecurityplus.fore.entity.Article;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.math.BigInteger;
@@ -40,7 +41,7 @@ public interface ArticleDao {
      * @param ids 需要删除的数据ID
      * @return 结果
      */
-    int deleteArticleByIds(Long[] ids);
+    int deleteArticleByIds(@Param("ids")Long[] ids);
 
 //    /**
 //     * 根据用户ID查询文章

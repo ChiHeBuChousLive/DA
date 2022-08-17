@@ -38,7 +38,6 @@ public class ArticlePublishedController {
     @ApiOperation(value = "发布文章列表")
     @MyLog("查询已发布文章")
     public Result getArticleAll(PageTableRequest pageTableRequest, ArticleQueryDto articleQueryDto){
-        System.out.println(articleQueryDto);
         pageTableRequest.countOffset();
         return articleService.getArticleAll(pageTableRequest.getOffset(), pageTableRequest.getLimit(), articleQueryDto);
     }

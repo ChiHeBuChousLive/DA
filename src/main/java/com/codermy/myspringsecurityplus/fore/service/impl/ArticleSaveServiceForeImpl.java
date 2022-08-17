@@ -42,7 +42,6 @@ public class ArticleSaveServiceForeImpl implements ArticleSaveForeService {
     public int publicArticleSave(ArticleParam articleParam) {
 
         if (articleParam.getContent().length()<=50){
-            System.out.println(articleParam.getContent().length());
             return 0;
         };
         //articleBody添加

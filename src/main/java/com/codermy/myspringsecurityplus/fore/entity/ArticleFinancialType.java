@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ArticleFinancialType extends BaseEntity {
 
-    private Long financialTypeId;
+    private Integer financialTypeId;
 
     private String financialTypeName;
 

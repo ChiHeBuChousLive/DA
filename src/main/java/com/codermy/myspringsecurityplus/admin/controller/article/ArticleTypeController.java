@@ -79,7 +79,7 @@ public class ArticleTypeController {
     @ApiOperation(value = "修改资产类型页面")
     public String editType(Model model, ArticleType type) {
         //这里转化成Integar，前台和后台的数据结构有点不一样
-        model.addAttribute("ArticleType",articleTypeService.getTypeById(type.getTypeId().intValue()));
+        model.addAttribute("ArticleType",articleTypeService.getTypeById(type.getTypeId()));
         return "article/type/type-edit";
     }
     @PutMapping

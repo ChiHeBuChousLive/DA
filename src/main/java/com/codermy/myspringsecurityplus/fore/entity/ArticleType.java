@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 public class ArticleType extends BaseEntity {
 
-    private Long typeId;
+    private Integer typeId;
 
     private String typeName;
 

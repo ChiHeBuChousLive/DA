@@ -1,6 +1,8 @@
 package com.codermy.myspringsecurityplus;
 
+import cn.hutool.core.convert.Convert;
 import com.codermy.myspringsecurityplus.admin.service.UserService;
+import com.codermy.myspringsecurityplus.fore.dao.ArticleDao;
 import com.codermy.myspringsecurityplus.fore.dao.ArticleSaveDao;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleTag;
 import com.codermy.myspringsecurityplus.fore.service.ArticleBodyService;
@@ -18,22 +20,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class test {
     @Autowired
-    private ArticleSaveDao articleSaveDao;
-    @Autowired
-    private ArticleBodyService articleBodyService;
-    @Autowired
-    private ArticleTagService articleTagService;
-    @Autowired
-    private UserService userService;
+    private ArticleDao articleDao;
+
     @Test
     public void a(){
-        ArticleTag articleTag=new ArticleTag();
-
-        int[] tags = new int[]{1,2,3,4};
-
-        for (int tag : tags) {
-            articleTag.setTagId(tag);
-            articleTagService.insertArticleTag(articleTag);
-        }
+     ;
     }
 }

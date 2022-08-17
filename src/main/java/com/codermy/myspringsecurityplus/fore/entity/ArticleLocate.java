@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ArticleLocate extends BaseEntity {
 
-    private Long locateId;
+    private Integer locateId;
 
     private String locateName;
 
