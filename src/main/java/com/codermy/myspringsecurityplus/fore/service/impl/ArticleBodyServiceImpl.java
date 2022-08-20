@@ -23,4 +23,9 @@ public class ArticleBodyServiceImpl implements ArticleBodyService {
     public int insertArticleBody(ArticleBody articleBody) {
         return articleBodyDao.insertArticleBody(articleBody);
     }
+
+    @Override
+    public ArticleBody getArticleBodyById(Long articleBodyId) {
+        return articleBodyDao.getArticleBodyById(articleBodyId);
+    }
 }

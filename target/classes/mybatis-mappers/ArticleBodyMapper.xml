@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.codermy.myspringsecurityplus.fore.dao.ArticleBodyDao">
     <sql id="selectArticleBodyVo">
-        select a.body_id,a.content,a.content_html,a.article_id,
+        select a.body_id,a.content,a.content_html,a.article_id
         from ms_article_body a
     </sql>
 
@@ -13,6 +13,12 @@
         INSERT INTO ms_article_body(body_id,content,content_html)
         values(#{bodyId},#{content},#{contentHtml})
     </insert>
+
+
+    <select id="getArticleBodyById" resultType="com.codermy.myspringsecurityplus.fore.entity.ArticleBody" parameterType="long">
+        <include refid="selectArticleBodyVo"/>
+        where a.body_id= #{bodyId} limit 1
+    </select>
 
 
 <!--    <select id="getFuzzyJob" resultType="com.codermy.myspringsecurityplus.admin.entity.MyJob">-->

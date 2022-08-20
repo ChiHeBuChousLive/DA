@@ -1,18 +1,27 @@
 package com.codermy.myspringsecurityplus.admin.controller.article;
 
 
+import com.codermy.myspringsecurityplus.admin.dto.ArticleDto;
 import com.codermy.myspringsecurityplus.admin.dto.ArticleQueryDto;
 import com.codermy.myspringsecurityplus.admin.service.ArticleService;
 import com.codermy.myspringsecurityplus.common.exceptionhandler.MyException;
 import com.codermy.myspringsecurityplus.common.utils.PageTableRequest;
 import com.codermy.myspringsecurityplus.common.utils.Result;
 import com.codermy.myspringsecurityplus.fore.entity.Article;
+import com.codermy.myspringsecurityplus.fore.entity.ArticleTag;
+import com.codermy.myspringsecurityplus.fore.service.ArticleBodyService;
+import com.codermy.myspringsecurityplus.fore.service.ArticleTagService;
+import com.codermy.myspringsecurityplus.fore.service.TagService;
 import com.codermy.myspringsecurityplus.log.aop.MyLog;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author 吃喝不愁
@@ -24,7 +33,12 @@ import org.springframework.web.bind.annotation.*;
 public class ArticlePublishedController {
     @Autowired
     private ArticleService articleService;
-
+    @Autowired
+    private ArticleBodyService articleBodyService;
+    @Autowired
+    private ArticleTagService articleTagService;
+    @Autowired
+    private TagService tagService;
 
     @GetMapping("/index")
     @ApiOperation(value = "返回已发布文章页面")
@@ -55,13 +69,38 @@ public class ArticlePublishedController {
         }
     }
 
-//    @GetMapping("/add")
-//    @ApiOperation(value = "添加岗位页面")
-//    @PreAuthorize("hasAnyAuthority('job:add')")
-//    public String addJob(Model model){
+    @GetMapping(value = "/content")
+    @ApiOperation(value = "具体文章页面")
+    public String content(Model model, ArticleDto articleDto) {
+       Long articleId = Long.parseLong(articleDto.getArticleId());
+       //article传过去
+       Article article= articleService.getArticleById(articleId);
+       model.addAttribute("Article",article);
+        System.out.println(article);
+        //articleBody
+        model.addAttribute("ArticleBody",articleBodyService.getArticleBodyById(article.getBodyId()));
+
+        //tag传过去
+        //articleTag
+        List<String> articleTags=new ArrayList<>();
+        List<ArticleTag> articleTagList= articleTagService.selectArticleTagByArticleId(articleId);
+        //有数据才把遍历填入articleTags
+        if (articleTagList!=null) {
+            for (ArticleTag articleTag : articleTagList) {
+                articleTags.add(tagService.getTagNameById(articleTag.getTagId()));
+            }
+        }
+        model.addAttribute("Tags",articleTags);
+        return "article/published/published-content";
+    }
+
+    @GetMapping("/setWeight")
+    @ApiOperation(value = "设置权重页面")
+    public String addJob(Model model,String ids){
+
 //        model.addAttribute("MyJob",new MyJob());
-//        return "/system/job/job-add";
-//    }
+        return "article/published/published-setWeight";
+    }
 
 //    @PostMapping
 //    @ResponseBody
@@ -75,13 +114,7 @@ public class ArticlePublishedController {
 //        return Result.judge(jobService.insertJob(myJob),"添加岗位");
 //    }
 
-//    @GetMapping(value = "/edit")
-//    @ApiOperation(value = "修改岗位页面")
-//    @PreAuthorize("hasAnyAuthority('job:edit')")
-//    public String editRole(Model model, MyJob job) {
-//        model.addAttribute("MyJob",jobService.getJobById(job.getJobId()));
-//        return "system/job/job-edit";
-//    }
+
 //    @PutMapping
 //    @ResponseBody
 //    @ApiOperation(value = "修改岗位")

@@ -30,4 +30,12 @@ public interface ArticleTagService {
      * @throws MyException 异常
      */
     int deleteArticleTagByIds(String ids) throws MyException;
+
+    /**
+     * 查询所有与articleId相关的tag
+     *
+     * @return 类型列表
+     */
+    List<ArticleTag> selectArticleTagByArticleId(Long articleId);
+
 }

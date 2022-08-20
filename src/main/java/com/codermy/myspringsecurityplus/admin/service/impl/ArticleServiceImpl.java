@@ -44,11 +44,11 @@ public class ArticleServiceImpl implements ArticleService {
         Page page = PageHelper.offsetPage(offectPosition,limit);
         List<Article> fuzzyArticle = articleDao.getFuzzyArticle(articleQueryDto);
         List<ArticleDto> fuzzyArticleDto=new ArrayList<ArticleDto>();
-        ArticleDto articleDto=new ArticleDto();
         for (Article article : fuzzyArticle) {
             //相同查询
-            //id从long转换成Integar
-            articleDto.setArticleId(article.getArticleId());
+            //id从long转换成String
+            ArticleDto articleDto=new ArticleDto();
+            articleDto.setArticleId(String.valueOf(article.getArticleId()));
             articleDto.setTitle(article.getTitle());
             articleDto.setAuthorId(article.getAuthorId());
 
@@ -68,11 +68,11 @@ public class ArticleServiceImpl implements ArticleService {
         return Result.ok().count(page.getTotal()).data(fuzzyArticleDto).code(ResultCode.TABLE_SUCCESS);
     }
 
-    @Override
-    @Transactional
-    public int insertArticle(Article article) {
-        return articleDao.insertArticle(article);
-    }
+//    @Override
+//    @Transactional
+//    public int insertArticle(Article article) {
+//        return articleDao.insertArticle(article);
+//    }
 
     @Override
     @Transactional
@@ -85,5 +85,16 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<Article> selectArticleAll() {
         return articleDao.selectArticleAll();
+    }
+
+
+    @Override
+    public Article getArticleById(Long articleId) {
+        return articleDao.getArticleById(articleId);
+    }
+
+    @Override
+    public int changeWeight(Article article) {
+        return articleDao.updateArticle(article);
     }
 }

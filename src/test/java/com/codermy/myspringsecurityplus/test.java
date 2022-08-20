@@ -2,8 +2,11 @@ package com.codermy.myspringsecurityplus;
 
 import cn.hutool.core.convert.Convert;
 import com.codermy.myspringsecurityplus.admin.service.UserService;
+import com.codermy.myspringsecurityplus.fore.dao.ArticleBodyDao;
 import com.codermy.myspringsecurityplus.fore.dao.ArticleDao;
 import com.codermy.myspringsecurityplus.fore.dao.ArticleSaveDao;
+import com.codermy.myspringsecurityplus.fore.dao.TagDao;
+import com.codermy.myspringsecurityplus.fore.entity.ArticleBody;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleTag;
 import com.codermy.myspringsecurityplus.fore.service.ArticleBodyService;
 import com.codermy.myspringsecurityplus.fore.service.ArticleTagService;
@@ -20,10 +23,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class test {
     @Autowired
-    private ArticleDao articleDao;
+    private TagDao tagDao;
+    @Autowired
+    private ArticleBodyDao articleBodyDao;
 
     @Test
     public void a(){
-     ;
+        String articleId="1405916999854342179";
+         Long a=Long.parseLong(articleId);
+        ArticleBody articleBody= articleBodyDao.getArticleBodyById(a);
+        System.out.println(articleBody);
     }
 }

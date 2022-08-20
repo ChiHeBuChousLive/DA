@@ -16,7 +16,7 @@ import java.util.List;
  * @createTime 2020/8/19
  */
 @Service
-public class ArticleTagImpl implements ArticleTagService {
+public class ArticleTagServiceImpl implements ArticleTagService {
     @Autowired
     private ArticleTagDao articleTagDao;
     //插入文章
@@ -28,13 +28,18 @@ public class ArticleTagImpl implements ArticleTagService {
 
     @Override
     public List<ArticleTag> selectArticleTagAll() {
-        return articleTagDao.selectArticleTag();
+        return articleTagDao.selectArticleTagAll();
     }
 
     @Override
     @Transactional
     public int deleteArticleTagByIds(String ids) throws MyException {
-        Integer[] articleTagIds = Convert.toIntArray(ids);
+        Long[] articleTagIds = Convert.toLongArray(ids);
         return articleTagDao.deleteArticleTagByIds(articleTagIds);
+    }
+
+    @Override
+    public List<ArticleTag> selectArticleTagByArticleId(Long articleId) {
+        return articleTagDao.selectArticleTagByArticleId(articleId);
     }
 }

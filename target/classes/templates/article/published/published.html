@@ -72,9 +72,9 @@
     </div>
 </div>
 <script type="text/html" id="article-toolbar">
-    <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="add">
+    <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="setWeight">
         <i class="layui-icon layui-icon-add-1"></i>
-        新增
+        设置权重
     </button>
     <button class="pear-btn pear-btn-danger pear-btn-md" lay-event="batchRemove">
         <i class="layui-icon layui-icon-delete"></i>
@@ -83,12 +83,12 @@
 </script>
 
 <script type="text/html" id="article-bar">
-    <button class="pear-btn pear-btn-primary pear-btn-sm" lay-event="edit"><i class="layui-icon layui-icon-edit"></i></button>
+    <button class="pear-btn pear-btn-primary pear-btn-sm" lay-event="content"><i class="layui-icon layui-icon-edit"></i></button>
     <button class="pear-btn pear-btn-danger pear-btn-sm" lay-event="remove"><i class="layui-icon layui-icon-delete"></i></button>
 </script>
 
 <script type="text/html" id="article-status">
-    <input type="checkbox"  name="status"  value="{{d.jobId}}" lay-skin="switch" lay-text="启用|禁用" mid="{{d.jobId}}"  lay-filter="job-status" {{ d.status == '1' ? 'checked' : '' }}>
+    <input type="checkbox"  name="status"  value="{{d.articleId}}" lay-skin="switch" lay-text="启用|禁用" mid="{{d.articleId}}"  lay-filter="article-status" {{ d.status == '1' ? 'checked' : '' }}>
 </script>
 
 
@@ -135,26 +135,26 @@
         table.on('tool(article-table)', function(obj){
             if(obj.event === 'remove'){
                 window.remove(obj);
-            } else if(obj.event === 'edit'){
-                window .edit(obj);
+            } else if(obj.event === 'content'){
+                window.content(obj);
             }
         });
 
         table.on('toolbar(article-table)', function(obj){
-            if(obj.event === 'add'){
-                window.add();
+            if(obj.event === 'setWeight'){
+                window.setWeight(obj);
             } else if(obj.event === 'refresh'){
                 window.refresh();
             } else if(obj.event === 'batchRemove'){
                 window.batchRemove(obj);
             }
         });
-        form.on('switch(job-status)', function(obj) {
+        form.on('switch(article-status)', function(obj) {
             layer.confirm(obj.elem.checked ? '确定要启用该文章吗' : '确定要停用该文章吗', {icon: 3, title: '提示'}, function (index) {
                 layer.close(index);
                 var status = obj.elem.checked ? 1 : 0;
                 var data ={
-                    jobId: obj.value,
+                    articleId: obj.value,
                     status: status
                 }
                 let loading = layer.load();
@@ -179,7 +179,6 @@
         });
         form.on('submit(article-query)', function(data){
             var formData = data.field;
-            var articleQueryDto=formData.title;
             var articleQueryDto=new Object();
             articleQueryDto.title=formData.title;
             articleQueryDto.authorId=formData.authorId;
@@ -200,24 +199,34 @@
         });
 
 
-        window.add = function(){
+        window.setWeight = function(obj){
+            let data = table.checkStatus(obj.config.id).data;
+            if(data.length === 0){
+                layer.msg("未选中数据",{icon:3,time:1000});
+                return false;
+            }
+            let ids = "";
+            for(let i = 0;i<data.length;i++){
+                ids += data[i].articleId+",";
+            }
+            ids = ids.substr(0,ids.length-1);
             layer.open({
                 type: 2,
-                title: '新增',
+                title: '设置文章权重',
                 shade: 0.1,
                 area: ['500px', '500px'],
-                content:  '/api/job/add'
+                content:  "/api/article/published?ids="+ids,
             });
         }
 
-        window.edit = function(obj){
+        window.content = function(obj){
             var data = obj.data;
             layer.open({
                 type: 2,
-                title: '修改',
+                title: '文章详情',
                 shade: 0.1,
-                area: ['500px', '500px'],
-                content:  '/api/job/edit/?jobId='+data.jobId
+                area: ['1850px', '900px'],
+                content:  '/api/article/published/content?articleId='+data.articleId
             });
         }
 
@@ -251,14 +260,14 @@
             }
             let ids = "";
             for(let i = 0;i<data.length;i++){
-                ids += data[i].jobId+",";
+                ids += data[i].articleId+",";
             }
             ids = ids.substr(0,ids.length-1);
             layer.confirm('确定删除这些文章吗？', {icon: 3, title:'提示'}, function(index){
                 layer.close(index);
                 let loading = layer.load();
                 $.ajax({
-                    url: "/api/job?ids="+ids,
+                    url: "/api/article/published?ids="+ids,
                     dataType:'json',
                     type:'delete',
                     success:function(result){

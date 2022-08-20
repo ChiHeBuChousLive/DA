@@ -1,5 +1,6 @@
 package com.codermy.myspringsecurityplus.fore.dao;
 import com.codermy.myspringsecurityplus.admin.dto.ArticleQueryDto;
+import com.codermy.myspringsecurityplus.admin.entity.MyJob;
 import com.codermy.myspringsecurityplus.fore.entity.Article;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -27,13 +28,13 @@ public interface ArticleDao {
     int insertArticle(Article article);
 
 
-//
-//    /**
-//     * 通过id查询文章信息
-//     * @param articleId
-//     * @return
-//     */
-//    Article getArticleById(Integer articleId);
+
+    /**
+     * 通过id查询文章信息
+     * @param articleId
+     * @return
+     */
+    Article getArticleById(Long articleId);
 
     /**
      * 批量删除文章信息
@@ -57,5 +58,13 @@ public interface ArticleDao {
      * @return 文章列表
      */
     List<Article> selectArticleAll();
+
+    /**
+     * 修改文章信息
+     *
+     * @param article 文章信息
+     * @return 结果
+     */
+    int updateArticle(Article article);
 
 }

@@ -41,7 +41,7 @@
                 AND a.weight = #{weight}
             </if>
         </where>
-        order by a.create_date
+        order by a.weight, a.create_date
     </select>
 
 
@@ -66,15 +66,17 @@
         <include refid="selectArticleVo"/>
     </select>
 
-<!--    <update id="updateArticle" parameterType="com.codermy.myspringsecurityplus.fore.">-->
-<!--        update my_job-->
-<!--        <set>-->
-<!--            <if test="jobName != null and jobName != ''">job_name = #{jobName},</if>-->
-<!--            <if test="status != null">status = #{status},</if>-->
-<!--            <if test="sort != null and sort != ''">sort = #{sort},</if>-->
-<!--            update_time = #{updateTime}-->
-<!--        </set>-->
-<!--        where job_id = #{jobId}-->
-<!--    </update>-->
+    <select id="getArticleById" resultType="com.codermy.myspringsecurityplus.fore.entity.Article">
+        <include refid="selectArticleVo"/>
+        where a.article_id= #{articleId}
+    </select>
+
+    <update id="updateArticle" parameterType="com.codermy.myspringsecurityplus.fore.entity.Article">
+        update ms_article
+        <set>
+            <if test="weight != null and weight != ''">weight = #{weight},</if>
+        </set>
+        where article_id = #{articleId}
+    </update>
 
 </mapper>

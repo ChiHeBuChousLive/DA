@@ -20,20 +20,20 @@ public interface ArticleService {
      */
     Result<ArticleDto> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto);
 
-    /**
-     * 新增文章信息
-     * @param article 文章信息
-     * @return 结果
-     */
-    int insertArticle(Article article);
-
-
 //    /**
-//     * 通过id获得文章信息
-//     * @param articleId
-//     * @return
+//     * 新增文章信息
+//     * @param article 文章信息
+//     * @return 结果
 //     */
-//    Article getArticleById(Integer articleId);
+//    int insertArticle(Article article);
+
+
+    /**
+     * 通过id获得文章信息
+     * @param articleId
+     * @return
+     */
+    Article getArticleById(Long articleId);
 
     /**
      * 批量删除文章信息
@@ -51,6 +51,12 @@ public interface ArticleService {
      */
     List<Article> selectArticleAll();
 
+        /**
+     * 修改文章权重
+     * @param article
+     * @return
+     */
+    int changeWeight(Article article);
 
     //    /**
 //     * 根据用户ID查询文章
@@ -60,10 +66,5 @@ public interface ArticleService {
 //     */
 //    List<Article> selectArticlesByUserId(Integer userId);
 
-//    /**
-//     * 修改文章状态
-//     * @param myUser
-//     * @return
-//     */
-//    int changeStatus(Article myUser);
+
 }

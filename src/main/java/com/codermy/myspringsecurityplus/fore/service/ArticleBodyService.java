@@ -14,4 +14,6 @@ public interface ArticleBodyService {
      */
     int insertArticleBody(ArticleBody articleBody);
 
+    ArticleBody getArticleBodyById(Long articleBodyId);
+
 }

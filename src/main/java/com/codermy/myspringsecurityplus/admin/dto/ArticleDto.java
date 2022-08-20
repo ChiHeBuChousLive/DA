@@ -10,7 +10,7 @@ import java.math.BigInteger;
 @Data
 public class ArticleDto {
     //文章id
-    private Long articleId;
+    private String articleId;
     //文章标题
     private String title;
     //作者id
