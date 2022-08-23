@@ -28,7 +28,7 @@ public interface ArticleTagDao {
      * @param articleIds 需要删除的数据ID
      * @return 结果
      */
-    int deleteArticleTagByIds(Long[] articleIds);
+    int deleteArticleTagByArticleIds(Long[] articleIds);
 
     /**
      * 根据文章id查询文章标签信息

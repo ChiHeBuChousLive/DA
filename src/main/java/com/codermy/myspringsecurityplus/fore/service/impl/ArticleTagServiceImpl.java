@@ -33,9 +33,8 @@ public class ArticleTagServiceImpl implements ArticleTagService {
 
     @Override
     @Transactional
-    public int deleteArticleTagByIds(String ids) throws MyException {
-        Long[] articleTagIds = Convert.toLongArray(ids);
-        return articleTagDao.deleteArticleTagByIds(articleTagIds);
+    public int deleteArticleTagByArticleIds(Long[] ids) throws MyException {
+        return articleTagDao.deleteArticleTagByArticleIds(ids);
     }
 
     @Override

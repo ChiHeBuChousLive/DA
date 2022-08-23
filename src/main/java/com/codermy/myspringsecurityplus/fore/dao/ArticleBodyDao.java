@@ -23,4 +23,12 @@ public interface ArticleBodyDao {
      */
     ArticleBody getArticleBodyById(@Param("bodyId") Long bodyId);
 
+    /**
+     * 批量删除文章体信息
+     *
+     * @param ids 需要删除的数据ID
+     * @return 结果
+     */
+    int deleteArticleBodyByIds(@Param("ids")Long[] ids);
+
 }

@@ -21,6 +21,14 @@
     </select>
 
 
+    <delete id="deleteArticleBodyByIds" >
+        delete from ms_article_body where body_id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
 <!--    <select id="getFuzzyJob" resultType="com.codermy.myspringsecurityplus.admin.entity.MyJob">-->
 <!--        <include refid="selectJobVo"/>-->
 <!--        <where>-->

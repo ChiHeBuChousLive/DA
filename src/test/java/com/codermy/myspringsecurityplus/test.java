@@ -29,9 +29,5 @@ public class test {
 
     @Test
     public void a(){
-        String articleId="1405916999854342179";
-         Long a=Long.parseLong(articleId);
-        ArticleBody articleBody= articleBodyDao.getArticleBodyById(a);
-        System.out.println(articleBody);
     }
 }

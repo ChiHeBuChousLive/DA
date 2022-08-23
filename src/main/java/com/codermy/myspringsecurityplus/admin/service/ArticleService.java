@@ -51,7 +51,7 @@ public interface ArticleService {
      */
     List<Article> selectArticleAll();
 
-        /**
+    /**
      * 修改文章权重
      * @param article
      * @return

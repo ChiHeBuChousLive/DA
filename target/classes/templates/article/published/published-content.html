@@ -6,10 +6,11 @@
     <header th:replace="header::html"></header>
 </head>
 <body>
+
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
     <legend>文章简介</legend>
 </fieldset>
-<blockquote class="layui-elem-quote" th:text="${Article.summary}">这个貌似不用多介绍，因为你已经在太多的地方都看到</blockquote>
+<blockquote class="layui-elem-quote" th:text="${summary}">这个貌似不用多介绍，因为你已经在太多的地方都看到</blockquote>
 
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
     <legend>文章内容</legend>
@@ -21,26 +22,32 @@
 <br>
 
 <form class="layui-form" action="">
+    <input type="text" id="articleId" th:value="${ArticleDto.articleId}" name="articleId" style="display:none;" autocomplete="off" class="layui-input">
     <div class="layui-form-item">
         <label class="layui-form-label">文章权重</label>
         <div class="layui-input-inline">
-            <input type="password" name="password" required lay-verify="required" placeholder="请在这输入权重" autocomplete="off" class="layui-input">
+            <input type="text" name="weight" th:value="${ArticleDto.weight}" required lay-verify="weight" placeholder="请在这输入权重" autocomplete="off" class="layui-input">
         </div>
-        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="" lay-filter="job-save">
+        <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="" lay-filter="article-weight">
             <i class="layui-icon layui-icon-ok"></i>
             提交
         </button>
     </div>
 </form>
+<label class="layui-form-label">文章状态</label>
+<div class="layui-field-box" th:text="${Tags}">
+</div>
+
 
 <script>
     layui.use(['form','jquery'],function(){
         let form = layui.form;
         let $ = layui.jquery;
 
-        form.on('submit(job-edit)', function(data){
+        form.on('submit(article-weight)', function(data){
+            console.log(data.field.weight)
             $.ajax({
-                url:'/api/job',
+                url:'/api/article/published/changeWeight',
                 data:JSON.stringify(data.field),
                 dataType:'json',
                 contentType:'application/json',
@@ -49,7 +56,7 @@
                     if(result.success){
                         layer.msg(result.msg,{icon:1,time:1000},function(){
                             parent.layer.close(parent.layer.getFrameIndex(window.name));//关闭当前页
-                            parent.layui.table.reload("job-table");
+                            parent.layui.table.reload("article-table");
                         });
                     }else{
                         layer.msg(result.msg,{icon:2,time:1000});
@@ -59,7 +66,7 @@
             return false;
         });
         form.verify({
-            sort:  [
+            weight:  [
                 /^[1-9]\d*$/
                 ,'只能是整数哦'
             ],

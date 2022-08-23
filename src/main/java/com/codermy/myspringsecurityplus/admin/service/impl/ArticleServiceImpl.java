@@ -12,8 +12,8 @@ import com.codermy.myspringsecurityplus.common.utils.ResultCode;
 import com.codermy.myspringsecurityplus.fore.dao.ArticleDao;
 import com.codermy.myspringsecurityplus.fore.entity.Article;
 import com.codermy.myspringsecurityplus.admin.service.ArticleService;
-import com.codermy.myspringsecurityplus.fore.entity.ArticleFinancialType;
-import com.codermy.myspringsecurityplus.fore.vo.ArticleVo;
+import com.codermy.myspringsecurityplus.fore.service.ArticleBodyService;
+import com.codermy.myspringsecurityplus.fore.service.ArticleTagService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,10 @@ public class ArticleServiceImpl implements ArticleService {
     ArticleFinancialTypeService articleFinancialTypeService;
     @Autowired
     ArticleLocateService articleLocateService;
-
+    @Autowired
+    ArticleBodyService articleBodyService;
+    @Autowired
+    ArticleTagService articleTagService;
 
     @Override
     public Result<ArticleDto> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto) {
@@ -77,8 +80,17 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     @Transactional
     public int deleteArticleByIds(String ids) throws MyException {
-        System.out.println(ids);
         Long[] articleIds= Convert.toLongArray(ids);
+        Long[] articleBodyIds = new Long[articleIds.length];
+
+        //循环拿到article-id
+        for (int i = 0; i < articleIds.length; i++) {
+            articleBodyIds[i]=articleDao.getArticleById(articleIds[i]).getBodyId();
+        }
+        //删除文章体
+        articleBodyService.deleteArticleBodyByIds(articleBodyIds);
+        //删除article-tag关联表
+        articleTagService.deleteArticleTagByArticleIds(articleIds);
         return articleDao.deleteArticleByIds(articleIds);
     }
 

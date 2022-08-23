@@ -15,7 +15,7 @@
     </insert>
 
 
-    <delete id="deleteArticleTagByIds" parameterType="Long">
+    <delete id="deleteArticleTagByArticleIds" parameterType="Long">
         delete from ms_article_tag where article_id in
         <foreach collection="array" item="articleId" open="(" separator="," close=")">
             #{articleId}

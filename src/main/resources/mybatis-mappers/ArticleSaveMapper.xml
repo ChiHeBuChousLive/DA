@@ -20,53 +20,56 @@
     </insert>
 
 
-<!--    <select id="getFuzzyJob" resultType="com.codermy.myspringsecurityplus.admin.entity.MyJob">-->
-<!--        <include refid="selectJobVo"/>-->
-<!--        <where>-->
-<!--            <if test="queryName != null and queryName != ''">-->
-<!--                AND j.job_name like CONCAT('%', #{queryName}, '%')-->
-<!--            </if>-->
-<!--            <if test="queryStatus!= null and queryStatus != ''">-->
-<!--                AND j.status = #{queryStatus}-->
-<!--            </if>-->
-<!--        </where>-->
-<!--        order by j.sort-->
-<!--    </select>-->
+    <select id="getFuzzyArticleSave" resultType="com.codermy.myspringsecurityplus.fore.entity.Article">
+        <include refid="selectArticleSaveVo"/>
+        <where>
+            <if test="title != null and title != ''">
+                AND a.title like CONCAT('%', #{title}, '%')
+            </if>
+            <if test="authorId!= null and authorId != ''">
+                AND a.author_Id = #{authorId}
+            </if>
+            <if test="type!= null and type != ''">
+                AND a.type_id = #{type}
+            </if>
+            <if test="locate!= null and locate != ''">
+                AND a.locate_id = #{locate}
+            </if>
+            <if test="financial!= null and financial != ''">
+                AND a.financialtype_id = #{financial}
+            </if>
+            <if test="weight!= null and weight != ''">
+                AND a.weight = #{weight}
+            </if>
+        </where>
+        order by a.weight, a.create_date
+    </select>
 
 
-<!--    <select id="checkJobNameUnique" parameterType="String" resultType="com.codermy.myspringsecurityplus.admin.entity.MyJob">-->
-<!--        <include refid="selectJobVo"/>-->
-<!--        where j.job_name= #{jobName} limit 1-->
-<!--    </select>-->
+    <delete id="deleteArticleSaveByIds" >
+        delete from ms_article_save where article_id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 
-<!--    <delete id="deleteJobByIds" parameterType="integer">-->
-<!--        delete from my_job where job_id in-->
-<!--        <foreach collection="array" item="jobId" open="(" separator="," close=")">-->
-<!--            #{jobId}-->
-<!--        </foreach>-->
-<!--    </delete>-->
+    <select id="selectArticleSaveAll" resultType="com.codermy.myspringsecurityplus.fore.entity.Article">
+        <include refid="selectArticleSaveVo"/>
+    </select>
 
-<!--    <select id="selectJobsByUserId" parameterType="integer" resultType="com.codermy.myspringsecurityplus.admin.entity.MyJob">-->
-<!--		SELECT j.job_id, j.job_name,j.status-->
-<!--		FROM my_user u-->
-<!--			 LEFT JOIN my_user_job uj ON u.user_id = uj.user_id-->
-<!--			 LEFT JOIN my_job j ON uj.job_id = j.job_id-->
-<!--		WHERE uj.user_id = #{userId}-->
-<!--	</select>-->
+    <select id="getArticleSaveById" resultType="com.codermy.myspringsecurityplus.fore.entity.Article">
+        <include refid="selectArticleSaveVo"/>
+        where a.article_id= #{articleId}
+    </select>
 
-<!--    <select id="selectJobAll" resultType="com.codermy.myspringsecurityplus.admin.entity.MyJob">-->
-<!--        <include refid="selectJobVo"/>-->
-<!--    </select>-->
+    <update id="updateArticleSave" parameterType="com.codermy.myspringsecurityplus.fore.entity.Article">
+        update ms_article
+        <set>
+            <if test="weight != null and weight != ''">weight = #{weight},</if>
+        </set>
+        where article_id = #{articleId}
+    </update>
 
-<!--    <update id="updateJob" parameterType="com.codermy.myspringsecurityplus.admin.entity.MyJob">-->
-<!--        update my_job-->
-<!--        <set>-->
-<!--            <if test="jobName != null and jobName != ''">job_name = #{jobName},</if>-->
-<!--            <if test="status != null">status = #{status},</if>-->
-<!--            <if test="sort != null and sort != ''">sort = #{sort},</if>-->
-<!--            update_time = #{updateTime}-->
-<!--        </set>-->
-<!--        where job_id = #{jobId}-->
-<!--    </update>-->
+
 </mapper>

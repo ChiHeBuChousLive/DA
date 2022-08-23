@@ -29,7 +29,7 @@ public interface ArticleTagService {
      * @return 结果
      * @throws MyException 异常
      */
-    int deleteArticleTagByIds(String ids) throws MyException;
+    int deleteArticleTagByArticleIds(Long[] ids) throws MyException;
 
     /**
      * 查询所有与articleId相关的tag

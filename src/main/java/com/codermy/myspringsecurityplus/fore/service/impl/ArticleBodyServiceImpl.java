@@ -1,6 +1,9 @@
 package com.codermy.myspringsecurityplus.fore.service.impl;
 
+import cn.hutool.core.convert.Convert;
+import com.codermy.myspringsecurityplus.common.exceptionhandler.MyException;
 import com.codermy.myspringsecurityplus.fore.dao.ArticleBodyDao;
+import com.codermy.myspringsecurityplus.fore.entity.Article;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleBody;
 import com.codermy.myspringsecurityplus.fore.service.ArticleBodyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +30,10 @@ public class ArticleBodyServiceImpl implements ArticleBodyService {
     @Override
     public ArticleBody getArticleBodyById(Long articleBodyId) {
         return articleBodyDao.getArticleBodyById(articleBodyId);
+    }
+
+    @Override
+    public int deleteArticleBodyByIds(Long[] ids) throws MyException {
+        return articleBodyDao.deleteArticleBodyByIds(ids);
     }
 }
