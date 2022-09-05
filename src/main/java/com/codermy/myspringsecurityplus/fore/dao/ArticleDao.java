@@ -28,7 +28,6 @@ public interface ArticleDao {
     int insertArticle(Article article);
 
 
-
     /**
      * 通过id查询文章信息
      * @param articleId

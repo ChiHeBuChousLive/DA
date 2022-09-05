@@ -64,4 +64,13 @@ public interface ArticleSaveDao {
      */
     int updateArticleSave(Article article);
 
+    /**
+     * 删除单个文章信息
+     *
+     * @param id 文章信息
+     * @return 结果
+     */
+    int deleteArticleSaveById(Long id);
+
+
 }

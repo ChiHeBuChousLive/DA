@@ -20,12 +20,12 @@ public interface ArticleService {
      */
     Result<ArticleDto> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto);
 
-//    /**
-//     * 新增文章信息
-//     * @param article 文章信息
-//     * @return 结果
-//     */
-//    int insertArticle(Article article);
+    /**
+     * 新增文章信息
+     * @param article 文章信息
+     * @return 结果
+     */
+    int insertArticle(Article article);
 
 
     /**

@@ -109,4 +109,10 @@ public class ArticleServiceImpl implements ArticleService {
     public int changeWeight(Article article) {
         return articleDao.updateArticle(article);
     }
+
+    @Override
+    public int insertArticle(Article article) {
+        return articleDao.insertArticle(article);
+    }
+
 }

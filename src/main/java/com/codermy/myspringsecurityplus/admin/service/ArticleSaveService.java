@@ -62,4 +62,12 @@ public interface ArticleSaveService {
      */
     int changeWeight(Article article);
 
+
+
+    /**
+     * 审核通过服务
+     * @param article
+     * @return
+     */
+    int articlePass(Article article);
 }

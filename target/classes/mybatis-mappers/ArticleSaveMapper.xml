@@ -64,12 +64,16 @@
     </select>
 
     <update id="updateArticleSave" parameterType="com.codermy.myspringsecurityplus.fore.entity.Article">
-        update ms_article
+        update ms_article_save
         <set>
             <if test="weight != null and weight != ''">weight = #{weight},</if>
         </set>
         where article_id = #{articleId}
     </update>
+
+    <delete id="deleteArticleSaveById" parameterType="Long">
+        delete from ms_article_save where article_id=#{id}
+    </delete>
 
 
 </mapper>

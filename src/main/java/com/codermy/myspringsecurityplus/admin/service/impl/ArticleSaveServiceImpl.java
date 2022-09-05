@@ -38,6 +38,8 @@ public class ArticleSaveServiceImpl implements ArticleSaveService {
     ArticleBodyService articleBodyService;
     @Autowired
     ArticleTagService articleTagService;
+    @Autowired
+    ArticleService articleService;
 
     //插入文章
     @Override
@@ -48,6 +50,7 @@ public class ArticleSaveServiceImpl implements ArticleSaveService {
 
 
     @Override
+    @Transactional
     public Result<ArticleDto> getArticleSaveAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto) {
         Page page = PageHelper.offsetPage(offectPosition,limit);
         List<Article> fuzzyArticle = articleSaveDao.getFuzzyArticleSave(articleQueryDto);
@@ -82,6 +85,7 @@ public class ArticleSaveServiceImpl implements ArticleSaveService {
     }
 
     @Override
+    @Transactional
     public int deleteArticleSaveByIds(String ids) throws MyException {
         Long[] articleIds= Convert.toLongArray(ids);
         Long[] articleBodyIds = new Long[articleIds.length];
@@ -105,5 +109,18 @@ public class ArticleSaveServiceImpl implements ArticleSaveService {
     @Override
     public int changeWeight(Article article) {
             return articleSaveDao.updateArticleSave(article);
+    }
+
+
+    @Override
+    @Transactional
+    public int articlePass(Article article) {
+        System.out.println(article);
+        //更改文章权重
+        articleSaveDao.updateArticleSave(article);
+        //插入正式表
+        articleService.insertArticle(article);
+        //删除储存表
+        return articleSaveDao.deleteArticleSaveById(article.getArticleId());
     }
 }

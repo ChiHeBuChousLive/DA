@@ -79,7 +79,7 @@ public class ArticleVerifyController {
         //article传过去,这边要转换成articleDto
         Article article= articleSaveService.getArticleSaveById(articleId);
         //转换成articleDto
-        articleDto.setArticleId( String.valueOf(article.getArticleId()));
+        articleDto.setArticleId(String.valueOf(article.getArticleId()));
         articleDto.setWeight(article.getWeight());
 
         model.addAttribute("ArticleDto",articleDto);
@@ -120,12 +120,27 @@ public class ArticleVerifyController {
     @ApiOperation(value = "修改文章权重")
     public Result changeWeight(@RequestBody ArticleDto articleDto)
     {
-        System.out.println(articleDto);
         Article article=new Article();
         article.setArticleId(Convert.toLong(articleDto.getArticleId()));
         article.setWeight(articleDto.getWeight());
         int i=articleSaveService.changeWeight(article);
         return Result.judge(i,"修改");
+    }
+
+    /**
+     * 审核通过功能
+     */
+    @MyLog("文章审核通过")
+    @PutMapping("/pass")
+    @ResponseBody
+    @ApiOperation(value = "修改文章权重")
+    public Result verifyPass(@RequestBody ArticleDto articleDto)
+    {
+        Article article= articleSaveService.getArticleSaveById(Convert.toLong(articleDto.getArticleId()));
+        article.setWeight(articleDto.getWeight());
+        //先插入后删除
+        int i=articleSaveService.articlePass(article);
+        return Result.judge(i,"审核");
     }
 
 }
