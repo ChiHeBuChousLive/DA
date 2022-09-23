@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
+<head>
     <title>NeuBizz | Blog | Bootstrap 4 Template by WebThemez</title>
 
     <!-- Meta -->
@@ -18,362 +18,504 @@
     <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/font-awesome/css/fontawesome-all.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/vendors/slick-carousel/slick.css}">
-	<link th:href="@{/assets/vendors/ace-responsive-menu/ace-responsive-menu.css}" rel="stylesheet" type="text/css" />
-	<link th:href="@{/assets/vendors/aos/aos.css}" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" th:href="@{/assets/css/theme.css}">
+    <link th:href="@{/assets/vendors/ace-responsive-menu/ace-responsive-menu.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/assets/vendors/aos/aos.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/theme.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/styles.css}">
-  </head>
+</head>
 <body>
-   <div class="hidden-xs hidden-sm nav-top bg-primary py-2">
-        <div class="container">
-          <div class="row">
+<div class="hidden-xs hidden-sm nav-top bg-primary py-2">
+    <div class="container">
+        <div class="row">
             <div class="col-sm-6">
-              <div class="nav-top-contact">
-                <!-- Social links -->
-                <ul class="list-inline text-center text-md-left mb-0">
-                  <li class="list-inline-item mx-2" ><i class="fa fa-phone"></i> +1-1245-678-980</li>
-                  <li class="list-inline-item mx-2" ><i class="fa fa-envelope" aria-hidden="true"></i> info@yourdomain.com</li>
-                </ul>
-              </div>
+                <div class="nav-top-contact">
+                    <!-- Social links -->
+                    <ul class="list-inline text-center text-md-left mb-0">
+                        <li class="list-inline-item mx-2" ><i class="fa fa-phone"></i> +1-1245-678-980</li>
+                        <li class="list-inline-item mx-2" ><i class="fa fa-envelope" aria-hidden="true"></i> info@yourdomain.com</li>
+                    </ul>
+                </div>
             </div>
             <div class="col-sm-6 text-right">
-                 <ul class="list-inline text-center text-md-right mb-0">
-				  <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Facebook">
-					<a target="_blank" href="https://www.facebook.com/Maxi">
-					  <i class="fab fa-facebook"></i>
-					</a>
-				  </li>
-				  <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Instagram">
-					<a target="_blank" href="https://www.instagram.com/Maxi">
-					  <i class="fab fa-instagram"></i>
-					</a>
-				  </li>
-				  <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Twitter">
-					<a target="_blank" href="https://twitter.com/Maxi">
-					  <i class="fab fa-twitter"></i>
-					</a>
-				  </li>
-				  <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Dribbble">
-					<a target="_blank" href="https://dribbble.com/Maxi">
-					  <i class="fab fa-dribbble"></i>
-					</a>
-				  </li>
-				</ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!-- Header -->
-    <header class="main-header">
-	<div class="container">
-			<div class="logo">
-					<a href="index.html">
-						 <h2><span>Neu</span>Bizz</h2>
-					  </a>
-				</div>
-			 <!-- Navbar -->
-				<nav class="mainNav">
-				<!-- Menu Toggle btn-->
-				<div class="menu-toggle">
-					<h3>Menu</h3>
-					<button type="button" id="menu-btn">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<!-- Responsive Menu Structure-->
-				<!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
-				<ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
-					 <li class="active">
-						<a href="index">
-							<span class="title">Home</span>
-						</a>
-					</li>
-					 <li>
-						<a href="about">
-							<span class="title">About Us</span>
-						</a>
-					</li>
-					 <li>
-						<a href="services">
-							<span class="title">Services</span>
-						</a>
-					</li>
-
-						<li>
-						<a href="javascript:;">
-							<span class="title">Pages</span>
-							<span class="arrow"></span> </a>
-						<!-- Level Two-->
-						<ul class="sub-menu" style="display: none;">
-							<li>
-								<a href="pricing">
-									<span class="title">Pricing</span>
-								</a>
-							</li>
-							<li>
-								<a href="portfolio">
-									<span class="title">Portfolio</span>
-								</a>
-							</li>
-							<li>
-								<a href="error">
-									<span class="title">404 Page</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="menu-active">
-						<a href="javascript:;">
-							<span class="title">Blog</span>
-							<span class="arrow"></span> </a>
-						<!-- Level Two-->
-						<ul class="sub-menu" style="display: none;">
-							<li>
-								<a href="blog">Blog</a>
-							</li>
-							<li>
-								<a href="blog-single-post">Blog Single</a>
-							</li>
-						</ul>
-					</li>
-					<li class="last ">
-						<a href="contact">
-							<span class="title">Contact Us</span>
-						</a>
-					</li>
-				</ul>
-				</nav>
-				</div>
-    </header>
-	  <section class="wt-section bg-gray text-center inner-page-header">
-			<div class="container">
-				<div class="row justify-content-md-center align-items-center text-white py-4 py-lg-5">
-					<div class="col-md-7">
-						<div class="text-center">
-							<h1 class="display-sm-4 display-lg-3">数据库</h1>
-							<p class="sub-text">这里是潍坊市不良资产信息的数据库</p>
-					  </div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-    <main role="main">
-<section class="wt-section">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-lg-8">
-                <div class="blog-post">
-                    <h3><a href="#">Latest Fullstack Technologies for Year 2020</a></h3>
-                    <div class="meta font-lora mb-3">
-                        <a href="#">Front-end</a>
-                        <a href="#">29th August 2019</a>
-                    </div>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
-                </div>
-                <div class="blog-post">
-                    <h3><a href="#">Most Popular Front-end Frameworks</a></h3>
-                    <div class="meta font-lora mb-3">
-                        <a href="#">Framework</a>
-                        <a href="#">24th August 2019</a>
-                    </div>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
-                </div>
-                <div class="blog-post">
-                    <h3><a href="#">Top Trending Webdesign Front-end Technologies</a></h3>
-                    <div class="meta font-lora mb-3">
-                        <a href="#">Webdesign</a>
-                        <a href="#">21th August 2019</a>
-                    </div>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
-                </div>
-                <div class="blog-post">
-                    <h3><a href="#">Top Trending Webdesign Front-end Technologies</a></h3>
-                    <div class="meta font-lora mb-3">
-                        <a href="#">Webdesign</a>
-                        <a href="#">21th August 2019</a>
-                    </div>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
-                </div>
-                <!--pagination-->
-				<div class="row justify-content-between align-items-center mb-4">
-            <div class="col-lg">
-              <nav aria-label="Bootstrap Pagination Example">
-                <ul class="pagination mb-0">
-                  <li class="page-item">
-                    <a class="page-link" href="#">Previous</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item active">
-                    <a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">4</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">5</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-
-            <div class="col-lg text-lg-right mt-1 mt-lg-0">
-              <span class="wt-font-size-90 text-muted">Page 2 of 5</span>
-            </div>
-          </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-widget mb-4">
-                    <div class=" mb-0">
-                        <a th:href="@{/main/edit}" class="btn btn-pill btn-primary mr-3 mb-md-0 mb-3">
-                            我要发布信息！
+                <ul class="list-inline text-center text-md-right mb-0">
+                    <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Facebook">
+                        <a target="_blank" href="https://www.facebook.com/Maxi">
+                            <i class="fab fa-facebook"></i>
                         </a>
-                    </div>
-                </div>
-                <div class="blog-widget mb-4">
-                    <h6 class="mb-4">Categories</h6>
-                    <div class="list-group list-group-right-arrow">
-                        <a href="#" class="list-group-item bg-light">Webdesign (10)</a>
-                        <a href="#" class="list-group-item bg-light">Front-end (22)</a>
-                        <a href="#" class="list-group-item bg-light">Fullstack (12)</a>
-                        <a href="#" class="list-group-item bg-light">UI Design (32)</a>
-                    </div>
-                </div>
-                <div class="blog-widget mb-4">
-                    <h6 class="mb-4">Latest Post</h6>
-                    <div class="card border-0 bg-light mb-1">
-                        <div class="card-body row align-items-center">
-                            <div class="col-4">
-                                <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post1.jpg}" alt=""></a>
-                            </div>
-                            <div class="col-8">
-                                <h6 class="my-2 font-size-14"><a href="#">Best UI Design Tip and Tricks</a></h6>
-                                <span class="font-size-14 text-muted">12 April 2019</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-0 bg-light mb-1">
-                        <div class="card-body row align-items-center">
-                            <div class="col-4">
-                                <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post2.jpg}" alt=""></a>
-                            </div>
-                            <div class="col-8">
-                                <h6 class="my-2 font-size-14"><a href="#">Latest JavaScript Frameworks</a></h6>
-                                <span class="font-size-14 text-muted">14 May 2019</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-0 bg-light mb-1">
-                        <div class="card-body row align-items-center">
-                            <div class="col-4">
-                                <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post3.jpg}" alt=""></a>
-                            </div>
-                            <div class="col-8">
-                                <h6 class="my-2 font-size-14"><a href="#">Free Fonts to use in UX</a></h6>
-                                <span class="font-size-14 text-muted">22 April 2019</span>
-                            </div>
-                        </div>
-                    </div>
+                    </li>
+                    <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Instagram">
+                        <a target="_blank" href="https://www.instagram.com/Maxi">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Twitter">
+                        <a target="_blank" href="https://twitter.com/Maxi">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Dribbble">
+                        <a target="_blank" href="https://dribbble.com/Maxi">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header -->
+<header class="main-header">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">
+                <h2><span>Neu</span>Bizz</h2>
+            </a>
+        </div>
+        <!-- Navbar -->
+        <nav class="mainNav">
+            <!-- Menu Toggle btn-->
+            <div class="menu-toggle">
+                <h3>Menu</h3>
+                <button type="button" id="menu-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Responsive Menu Structure-->
+            <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+            <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
+                <li class="active">
+                    <a href="index">
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about">
+                        <span class="title">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services">
+                        <span class="title">Services</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="title">Pages</span>
+                        <span class="arrow"></span> </a>
+                    <!-- Level Two-->
+                    <ul class="sub-menu" style="display: none;">
+                        <li>
+                            <a href="pricing">
+                                <span class="title">Pricing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="portfolio">
+                                <span class="title">Portfolio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="error">
+                                <span class="title">404 Page</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-active">
+                    <a href="javascript:;">
+                        <span class="title">Blog</span>
+                        <span class="arrow"></span> </a>
+                    <!-- Level Two-->
+                    <ul class="sub-menu" style="display: none;">
+                        <li>
+                            <a href="blog">Blog</a>
+                        </li>
+                        <li>
+                            <a href="blog-single-post">Blog Single</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="last ">
+                    <a href="contact">
+                        <span class="title">Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<section class="wt-section bg-gray text-center inner-page-header">
+    <div class="container">
+        <div class="row justify-content-md-center align-items-center text-white py-4 py-lg-5">
+            <div class="col-md-7">
+                <div class="text-center">
+                    <h1 class="display-sm-4 display-lg-3">数据库</h1>
+                    <p class="sub-text">这里是潍坊市不良资产信息的数据库</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-    </main>
+
+<main role="main">
+    <section class="wt-section">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-8">
+                    <div class="blog-post">
+                        <h3><a href="#">Latest Fullstack Technologies for Year 2020</a></h3>
+                        <div class="meta font-lora mb-3">
+                            <a href="#">Front-end</a>
+                            <a href="#">29th August 2019</a>
+                        </div>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
+                    </div>
+                    <div class="blog-post">
+                        <h3><a href="#">Most Popular Front-end Frameworks</a></h3>
+                        <div class="meta font-lora mb-3">
+                            <a href="#">Framework</a>
+                            <a href="#">24th August 2019</a>
+                        </div>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
+                    </div>
+                    <div class="blog-post">
+                        <h3><a href="#">Top Trending Webdesign Front-end Technologies</a></h3>
+                        <div class="meta font-lora mb-3">
+                            <a href="#">Webdesign</a>
+                            <a href="#">21th August 2019</a>
+                        </div>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
+                    </div>
+                    <div class="blog-post">
+                        <h3><a href="#">Top Trending Webdesign Front-end Technologies</a></h3>
+                        <div class="meta font-lora mb-3">
+                            <a href="#">Webdesign</a>
+                            <a href="#">21th August 2019</a>
+                        </div>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
+                    </div>
+                    <!--pagination-->
+                    <div class="row justify-content-between align-items-center mb-4">
+                        <div id="pagination" class="col-lg">
+                            <nav aria-label="Bootstrap Pagination Example">
+                                <ul class="pagination mb-0">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Previous</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">4</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">5</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="col-lg text-lg-right mt-1 mt-lg-0">
+                            <span class="wt-font-size-90 text-muted">Page 2 of 5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-widget mb-4">
+                        <div class=" mb-0">
+                            <a th:href="@{/main/edit}" class="btn btn-pill btn-primary mr-3 mb-md-0 mb-3">
+                                我要发布信息！
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-widget mb-4">
+                        <h6 class="mb-4">Categories</h6>
+                        <div class="list-group list-group-right-arrow">
+                            <a href="#" class="list-group-item bg-light">Webdesign (10)</a>
+                            <a href="#" class="list-group-item bg-light">Front-end (22)</a>
+                            <a href="#" class="list-group-item bg-light">Fullstack (12)</a>
+                            <a href="#" class="list-group-item bg-light">UI Design (32)</a>
+                        </div>
+                    </div>
+                    <div class="blog-widget mb-4">
+                        <h6 class="mb-4">Latest Post</h6>
+                        <div class="card border-0 bg-light mb-1">
+                            <div class="card-body row align-items-center">
+                                <div class="col-4">
+                                    <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post1.jpg}" alt=""></a>
+                                </div>
+                                <div class="col-8">
+                                    <h6 class="my-2 font-size-14"><a href="#">Best UI Design Tip and Tricks</a></h6>
+                                    <span class="font-size-14 text-muted">12 April 2019</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border-0 bg-light mb-1">
+                            <div class="card-body row align-items-center">
+                                <div class="col-4">
+                                    <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post2.jpg}" alt=""></a>
+                                </div>
+                                <div class="col-8">
+                                    <h6 class="my-2 font-size-14"><a href="#">Latest JavaScript Frameworks</a></h6>
+                                    <span class="font-size-14 text-muted">14 May 2019</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border-0 bg-light mb-1">
+                            <div class="card-body row align-items-center">
+                                <div class="col-4">
+                                    <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post3.jpg}" alt=""></a>
+                                </div>
+                                <div class="col-8">
+                                    <h6 class="my-2 font-size-14"><a href="#">Free Fonts to use in UX</a></h6>
+                                    <span class="font-size-14 text-muted">22 April 2019</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 
-    <!-- Footer -->
+<!-- Footer -->
 <footer class="wt-section bg-dark main-footer">
-<div class="container">
-<div class="row">
-<div class=" col-sm-4 col-md col-sm-4 col-12 col mb-4">
-<h5 class="mb-4">Reach us</h5>
+    <div class="container">
+        <div class="row">
+            <div class=" col-sm-4 col-md col-sm-4 col-12 col mb-4">
+                <h5 class="mb-4">Reach us</h5>
 
-<p><i class="fa fa-location-arrow mr-2"></i> #123, Manhatt 7 Avenu, NYC </p>
-<p><i class="fa fa-phone mr-2"></i>  +1-1234-567-987  </p>
-<p><i class="fa fa fa-envelope mr-2"></i> info@yourdomain.com  </p>
-
-
-</div>
+                <p><i class="fa fa-location-arrow mr-2"></i> #123, Manhatt 7 Avenu, NYC </p>
+                <p><i class="fa fa-phone mr-2"></i>  +1-1234-567-987  </p>
+                <p><i class="fa fa fa-envelope mr-2"></i> info@yourdomain.com  </p>
 
 
-<div class="col-sm-4 col-md  col-6 col mb-4">
-<h5 class="mb-4">Site links</h5>
-
-<ul class="list-inline">
-<li class="list-block-item mx-2"><a href="#">Home</a></li>
-<li class="list-block-item mx-2"><a href="#">About Us</a></li>
-<li class="list-block-item mx-2"><a href="#">Services</a></li>
-<li class="list-block-item mx-2"><a href="#">Portfolio</a></li>
-<li class="list-block-item mx-2"><a href="#">Pricing</a></li>
-</ul>
-
-</div>
+            </div>
 
 
-<div class="col-sm-4 col-md  col-6 col mb-4">
-<h5 class="mb-4">Quick links</h5>
+            <div class="col-sm-4 col-md  col-6 col mb-4">
+                <h5 class="mb-4">Site links</h5>
 
-<ul class="list-inline">
-<li class="list-block-item mx-2"><a href="#">Blog</a></li>
-<li class="list-block-item mx-2"><a href="#">Contact Us</a></li>
-<li class="list-block-item mx-2"><a href="#">Privacy Policy</a></li>
-<li class="list-block-item mx-2"><a href="http://webthemez.com">Terms & Conditions</a></li>
-</ul>
+                <ul class="list-inline">
+                    <li class="list-block-item mx-2"><a href="#">Home</a></li>
+                    <li class="list-block-item mx-2"><a href="#">About Us</a></li>
+                    <li class="list-block-item mx-2"><a href="#">Services</a></li>
+                    <li class="list-block-item mx-2"><a href="#">Portfolio</a></li>
+                    <li class="list-block-item mx-2"><a href="#">Pricing</a></li>
+                </ul>
 
-</div>
+            </div>
 
 
-<div class="col-sm-4 col-md  col-12 col mb-4">
-<h5 class="mb-4">Follow us</h5>
-<ul class="social_footer_ul list-inline text-left mb-0">
-<li class="list-inline-item mx-2"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-<li class="list-inline-item mx-2"><a href="#"><i class="fab fa-twitter"></i></a></li>
-<li class="list-inline-item mx-2"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-<li class="list-inline-item mx-2"><a href="#"><i class="fab fa-instagram"></i></a></li>
-</ul>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12 pt-4">
+            <div class="col-sm-4 col-md  col-6 col mb-4">
+                <h5 class="mb-4">Quick links</h5>
 
-<p class="text-center copyrights"><a class="text-white" href="https://webthemez.com/free-bootstrap-templates/">Bootstrap Theme</a> by WebThemez. <br>© All Rights Reserved</p>
-</div>
-</div>
-</div>
+                <ul class="list-inline">
+                    <li class="list-block-item mx-2"><a href="#">Blog</a></li>
+                    <li class="list-block-item mx-2"><a href="#">Contact Us</a></li>
+                    <li class="list-block-item mx-2"><a href="#">Privacy Policy</a></li>
+                    <li class="list-block-item mx-2"><a href="http://webthemez.com">Terms & Conditions</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="col-sm-4 col-md  col-12 col mb-4">
+                <h5 class="mb-4">Follow us</h5>
+                <ul class="social_footer_ul list-inline text-left mb-0">
+                    <li class="list-inline-item mx-2"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item mx-2"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item mx-2"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="list-inline-item mx-2"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 pt-4">
+
+                <p class="text-center copyrights"><a class="text-white" href="https://webthemez.com/free-bootstrap-templates/">Bootstrap Theme</a> by WebThemez. <br>© All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
 </footer>
-    <!-- End Footer -->
+<!-- End Footer -->
 
-    <!-- JS Script Files -->
-    <!-- Global Vendor -->
-    <script th:src="@{/assets/vendors/jquery.min.js}"></script>
-    <script th:src="@{/assets/vendors/jquery.migrate.min.js}"></script>
-    <script th:src="@{/assets/vendors/popper.min.js}"></script>
-    <script th:src="@{/assets/vendors/bootstrap/js/bootstrap.min.js}"></script>
-	<script th:src="@{/assets/vendors/aos/aos.js}"></script>
+<!-- JS Script Files -->
+<!-- Global Vendor -->
+<script th:src="@{/assets/vendors/jquery.min.js}"></script>
+<script th:src="@{/assets/vendors/jquery.migrate.min.js}"></script>
+<script th:src="@{/assets/vendors/popper.min.js}"></script>
+<script th:src="@{/assets/vendors/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/vendors/aos/aos.js}"></script>
 
-    <!-- Components Vendor  -->
-    <script th:src="@{/assets/vendors/slick-carousel/slick.min.js}"></script>
-	   <script th:src="@{/assets/vendors/ace-responsive-menu/ace-responsive-menu.js}"></script>
+<!-- Components Vendor  -->
+<script th:src="@{/assets/vendors/slick-carousel/slick.min.js}"></script>
+<script th:src="@{/assets/vendors/ace-responsive-menu/ace-responsive-menu.js}"></script>
 
-    <!--Plugin Initialize-->
-    <script th:src="@{/assets/js/global.js}"></script>
-    <script th:src="@{/assets/vendors/carousel.js}"></script>
+<!--Plugin Initialize-->
+<script th:src="@{/assets/js/global.js}"></script>
+<script th:src="@{/assets/vendors/carousel.js}"></script>
 
-   <!--js代码-->
+<!--js代码-->
+<!--选择框js-->
+
+<script>
+    var Pagination={
+        // 用于存放页码
+        code:'',
+        // 转换初始化数据
+        Extend:function(data){
+            data=data||{};
+            Pagination.size=data.size||5;
+            Pagination.page=data.page||1;
+            Pagination.step=data.step||3;
+        },
+        // 按编号添加页码
+        //s是开始页数，f是最后的页数
+        Add:function(s,f){
+            Pagination.code=' <li class="page-item">\n' +
+                '                    <a class="page-link" href="#">Previous</a>\n' +
+                '                  </li>'
+            for (var i=s;i<f;i++){
+                Pagination.code+=' <li class="page-item">\n' +
+                    '                    <a class="page-link" href="#">'+i+'</a>\n' +
+                    '                  </li>'
+            }
+            Pagination.code+='  <li class="page-item">\n' +
+                '                    <a class="page-link" href="#">Next</a>\n' +
+                '                  </li>'
+        },
+        // 更改页码
+        Click:function(){
+            Pagination.page= +this.innerHTML;
+            Pagination.Start();
+        },
+        // 上一页
+        Prev:function(){
+            Pagination.page--;
+            console.log(Pagination.page);
+            if(Pagination.page<1){
+                Pagination.page=1;
+            }
+            Pagination.Start();
+        },
+        // 下一页
+        Next:function(){
+            Pagination.page++;
+            if(Pagination.page>Pagination.size){
+                Pagination.page=Pagination.size;
+            }
+            Pagination.Start();
+        },
+        // 绑定页码点击事件，并设置当前页样式
+        Bind:function(){
+            // console.log(Pagination)
+            //这边的e是ul，a为ul里的所欲a标签
+            var a=Pagination.e.getElementsByTagName('a');
+            //这个用来给ul外面加选中的样式
+            var li=Pagination.e.getElementsByTagName('li');
+            for(var i=1;i<a.length-1;i++){
+                if(+a[i].innerHTML===Pagination.page){
+                    li[i].className='page-item active';
+                }
+                a[i].addEventListener('click',Pagination.Click);
+            }
+            //自己加的
+            a[0].addEventListener('click',Pagination.Prev);
+            a[a.length-1].addEventListener('click',Pagination.Next);
+        },
+        // 写入分页
+        Finish:function(){
+            //这边的e是ul
+            Pagination.e.innerHTML=Pagination.code;
+            //重置code
+            Pagination.code='';
+            Pagination.Bind();
+        },
+        // 根据分页类型作不同的呈现
+        Start:function(){
+            //这边先从1开始加试一试（死数据，1-5）
+            //开始的页数，最后的页熟
+            Pagination.Add(1,Pagination.size+1);
+            Pagination.Finish();
+
+        },
+        // 绑定上一页、下一页按钮的点击事件
+        //e是nav
+        Buttons:function(e){
+            var nav=e.getElementsByTagName('a');
+            nav[0].addEventListener('click',Pagination.Prev);
+            nav[nav.length-1].addEventListener('click',Pagination.Next);
+        },
+        // 创建初始结构
+        Create:function(e){
+            //pagination标签里面的东西
+            var html=[
+                '<nav aria-label="Bootstrap Pagination Example">',
+                '<ul class="pagination mb-0">',
+                '<li class="page-item">',
+                '<a class="page-link" href="#">Previous</a>',
+                ' </li>',
+                '<li class="page-item">',
+                '<a class="page-link" href="#">Next</a>',
+                '</li>',
+                '</ul>',
+                '</nav>',
+            ];
+            //把字符串转化为数组，用空格代替
+            //这里<pagination>里的内容被代替了。
+            e.innerHTML=html.join('');
+            //对象里面的e是ul
+            Pagination.e=e.getElementsByTagName('ul')[0];
+            //这里的e是nav
+            //！这个button我给去掉了Pagination.Buttons(e);
+        },
+        // 初始化
+        Init:function(e,data){
+            //把数据加载上去
+            Pagination.Extend(data);
+            //在这里面button了
+            //这边的e是<pagination>标签
+            Pagination.Create(e);
+            Pagination.Start();
+        }
+    }
+
+    // 绑定分页组件，并设置分页参数
+    var init=function(){
+        Pagination.Init(document.getElementById('pagination'),{
+            //总页数
+            size:5,
+            //当前页码
+            page:1,
+            step:3
+        });
+    }
+    // dom内容加载完毕后初始化分页组件
+    document.addEventListener('DOMContentLoaded',init);
+</script>
 
 
-
-    <!-- END JAVASCRIPTS -->
-  </body>
+<!-- END JAVASCRIPTS -->
+</body>
 </html>
+
+
+
+
+
+
