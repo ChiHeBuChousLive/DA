@@ -3,6 +3,7 @@ package com.codermy.myspringsecurityplus.fore.vo.params;
 import lombok.Data;
 
 
+//信息数据库页面返回前端所使用的实体类（因为要有content）而之前用的没有
 @Data
 public class ArticleParam {
 

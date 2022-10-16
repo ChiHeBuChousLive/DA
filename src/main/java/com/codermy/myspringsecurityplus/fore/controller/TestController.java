@@ -9,10 +9,7 @@ import com.codermy.myspringsecurityplus.log.aop.MyLog;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,12 +21,19 @@ public class TestController {
     @Autowired
     public ArticleTypeService articleTypeService;
 
-    @GetMapping("/1")
+    @GetMapping()
+    @ApiOperation(value = "测试")
+    public String error(){
+        return "main/test";
+    }
+
+    @GetMapping("/list")
     @ResponseBody
-    @MyLog("查询资产类型")
-    public Result<List<ArticleType>> getTypeAll(){
-        List<ArticleType> list = articleTypeService.selectTypeAll();
-        return Result.ok().data(list);
+    @ApiOperation(value = "发布文章列表")
+    @MyLog("查询已发布文章")
+    public Result getArticleAll(@RequestBody() PageTableRequest pageTableRequest){
+        System.out.println(pageTableRequest);
+        return Result.ok();
     }
 
 }

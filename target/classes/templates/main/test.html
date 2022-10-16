@@ -469,22 +469,22 @@
             //page 从1开始
             let page=Pagination.page;
             //找出小于page的5的整数
-           for(let i=1;i<=page;i=i+5){
-               if(page==i){
-                   Pagination.start=i;
+            for(let i=1;i<=page;i=i+5){
+                if(page==i){
+                    Pagination.start=i;
                     break;
-               }
-               else if(i>page-5){
-                   Pagination.start=i;
-                   break;
-               }
-           }
-           //绘制选项
-           Pagination.Add(Pagination.start,Pagination.start+5);
-           //重新获取一遍文章
+                }
+                else if(i>page-5){
+                    Pagination.start=i;
+                    break;
+                }
+            }
+            //绘制选项
+            Pagination.Add(Pagination.start,Pagination.start+5);
+            //重新获取一遍文章
             getArticleList();
             refreshArticle();
-           Pagination.Finish();
+            Pagination.Finish();
 
         },
         // 绑定上一页、下一页按钮的点击事件
@@ -555,28 +555,28 @@
     function refreshArticle(){
         // myajax 请求完毕时执行
         $.when(myajax).done(function(){
-                //主页面
-                var blog_post=document.getElementsByClassName("blog-post");
-                //最新页面
-                var blog_latest=document.getElementsByClassName("card-body row align-items-center");
-                console.log(blog_post[0]);
-                for(let i=0;i<blog_post.length;i++){
-                    //标题
-                    blog_post[i].getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerText=articles.data[i].title;
-                    //类型
-                    blog_post[i].getElementsByTagName("div")[0].getElementsByTagName("a")[0].innerText=articles.data[i].type;
-                    //发布时间
-                    blog_post[i].getElementsByTagName("div")[0].getElementsByTagName("a")[1].innerText=articles.data[i].createDate;
-                    //简介
-                    blog_post[i].getElementsByTagName("p")[0].innerText=articles.data[i].summary;
-                }
-                for(let i=0;i<blog_latest.length;i++){
-                    //标题
-                    blog_latest[i].getElementsByTagName("div")[1].getElementsByTagName("h6")[0].innerText=articles.data[i].title;
-                    //时间
-                    blog_latest[i].getElementsByTagName("div")[1].getElementsByTagName("span")[0].innerText=articles.data[i].createDate;
-                }
-                //status=false;
+            //主页面
+            var blog_post=document.getElementsByClassName("blog-post");
+            //最新页面
+            var blog_latest=document.getElementsByClassName("card-body row align-items-center");
+            console.log(blog_post[0]);
+            for(let i=0;i<blog_post.length;i++){
+                //标题
+                blog_post[i].getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerText=articles.data[i].title;
+                //类型
+                blog_post[i].getElementsByTagName("div")[0].getElementsByTagName("a")[0].innerText=articles.data[i].type;
+                //发布时间
+                blog_post[i].getElementsByTagName("div")[0].getElementsByTagName("a")[1].innerText=articles.data[i].createDate;
+                //简介
+                blog_post[i].getElementsByTagName("p")[0].innerText=articles.data[i].summary;
+            }
+            for(let i=0;i<blog_latest.length;i++){
+                //标题
+                blog_latest[i].getElementsByTagName("div")[1].getElementsByTagName("h6")[0].innerText=articles.data[i].title;
+                //时间
+                blog_latest[i].getElementsByTagName("div")[1].getElementsByTagName("span")[0].innerText=articles.data[i].createDate;
+            }
+            //status=false;
         }) ;
     }
 
@@ -601,21 +601,12 @@
 
 <!--分类文章的逻辑-->
 <script>
-
-
-
     console.log(document.getElementsByClassName("list-group list-group-right-arrow"));
     var Latest={
 
-        // 更改页码
-        Click:function(){
-            Pagination.page= +this.innerHTML;
-            Pagination.offset=(Pagination.page-1)*5;
-            Pagination.Start();
-        },
-
 
     }
+
 
     var init=function (){
 

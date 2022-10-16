@@ -26,12 +26,6 @@ public class ForeController {
         return "main/about";
     }
 
-    @GetMapping("/blog")
-    @ApiOperation(value = "前台首页")
-    public String blogs(){
-        return "main/blog";
-    }
-
     @GetMapping("/blog-single-post")
     @ApiOperation(value = "前台首页")
     public String blog(){

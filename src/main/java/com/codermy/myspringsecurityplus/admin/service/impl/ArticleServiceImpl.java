@@ -45,6 +45,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Result<ArticleDto> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto) {
         Page page = PageHelper.offsetPage(offectPosition,limit);
+        //模糊查询，没有参数就查询全部
         List<Article> fuzzyArticle = articleDao.getFuzzyArticle(articleQueryDto);
         List<ArticleDto> fuzzyArticleDto=new ArrayList<ArticleDto>();
         for (Article article : fuzzyArticle) {

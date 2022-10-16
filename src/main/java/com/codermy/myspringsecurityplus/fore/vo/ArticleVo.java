@@ -34,16 +34,16 @@ public class ArticleVo {
     /**
      *类型id
      */
-    private ArticleType type;
+    private String type;
 
     /**
      * 财产类型id（）
      */
-    private ArticleFinancialType financialType;
+    private String financialType;
     /**
      *地区id（）
      */
-    private ArticleLocate locate;
+    private String locate;
 
     /**
      * 置顶

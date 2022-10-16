@@ -116,7 +116,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/captcha",
                         "/register/**",
                         "/main/about",
-                        "/main/blog",
+                        "/main/blog/**",
                         "/main/blog-single-post",
                         "/main/contact",
                         "/main/error",

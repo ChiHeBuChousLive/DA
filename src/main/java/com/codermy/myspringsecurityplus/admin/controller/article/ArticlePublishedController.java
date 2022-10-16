@@ -77,7 +77,7 @@ public class ArticlePublishedController {
        //article传过去,这边要转换成articleDto
        Article article= articleService.getArticleById(articleId);
        //转换成articleDto
-       articleDto.setArticleId( String.valueOf(article.getArticleId()));
+       articleDto.setArticleId(String.valueOf(article.getArticleId()));
        articleDto.setWeight(article.getWeight());
 
        model.addAttribute("ArticleDto",articleDto);
