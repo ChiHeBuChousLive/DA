@@ -130,7 +130,7 @@ public class UserServiceImpl implements UserService {
     public Result<MyUser> save(MyUser myUser, Integer roleId) {
         if(roleId!= null){
             userDao.save(myUser);
-            //这里吧role和user关联
+            //这里把role和user关联
             MyRoleUser myRoleUser = new MyRoleUser();
             myRoleUser.setRoleId(roleId);
             myRoleUser.setUserId(myUser.getUserId().intValue());

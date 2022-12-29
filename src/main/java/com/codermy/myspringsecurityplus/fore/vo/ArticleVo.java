@@ -3,11 +3,14 @@ package com.codermy.myspringsecurityplus.fore.vo;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleFinancialType;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleLocate;
 import com.codermy.myspringsecurityplus.fore.entity.ArticleType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 @Data
 public class ArticleVo {
     //文章id
+    //这个注解解决了Long传到前端数据丢失的问题
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
     //文章标题
     private String title;

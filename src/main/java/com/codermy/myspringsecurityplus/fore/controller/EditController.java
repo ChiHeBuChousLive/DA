@@ -36,7 +36,6 @@ public class EditController {
     @ResponseBody
     @ApiOperation(value = "提交文章")
     public Result postArticle(@RequestBody ArticleParam articleParam){
-
         int verify= articleSaveForeService.publicArticleSave(articleParam);
         if(verify==0){
             return Result.error().message("文章内容太短！");

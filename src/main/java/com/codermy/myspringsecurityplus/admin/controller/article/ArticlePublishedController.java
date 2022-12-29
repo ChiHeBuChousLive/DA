@@ -101,6 +101,7 @@ public class ArticlePublishedController {
         return "article/published/published-content";
     }
 
+    //没写完
     @GetMapping("/setWeight")
     @ApiOperation(value = "设置权重页面")
     public String addJob(Model model,String ids){

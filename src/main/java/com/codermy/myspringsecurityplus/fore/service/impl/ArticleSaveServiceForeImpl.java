@@ -40,7 +40,7 @@ public class ArticleSaveServiceForeImpl implements ArticleSaveForeService {
     @Override
     @Transactional
     public int publicArticleSave(ArticleParam articleParam) {
-
+        System.out.println(articleParam);
         if (articleParam.getContent().length()<=50){
             return 0;
         };
@@ -78,7 +78,8 @@ public class ArticleSaveServiceForeImpl implements ArticleSaveForeService {
         articleSaveDao.insertArticleSave(article);
         //tag
         int[] tags=articleParam.getTags();
-
+        System.out.println(tags);
+        System.out.println("============================");
         ArticleTag articleTag=new ArticleTag();
         for (int tag : tags) {
             articleTag.setArticleId(article.getArticleId());

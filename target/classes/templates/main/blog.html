@@ -166,36 +166,40 @@
             <div class="row justify-content-between">
                 <div class="col-lg-8">
                     <div class="blog-post">
-                        <h3 ><a href="#">Latest Fullstack Technologies for Year 2020</a></h3>
+                        <h3  ><a style="cursor:pointer">Latest Fullstack Technologies for Year 2020</a></h3>
                         <div class="meta font-lora mb-3">
                             <a href="#">Front-end</a>
                             <a href="#">29th August 2019</a>
                         </div>
                         <p style="word-wrap: break-word">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
+                        <div style="display:none"></div>
                     </div>
                     <div class="blog-post">
-                        <h3><a href="#">Most Popular Front-end Frameworks</a></h3>
+                        <h3><a style="cursor:pointer">Most Popular Front-end Frameworks</a></h3>
                         <div class="meta font-lora mb-3">
                             <a href="#">Framework</a>
                             <a href="#">24th August 2019</a>
                         </div>
                         <p style="word-wrap: break-word">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
+                        <div style="display:none"></div>
                     </div>
                     <div class="blog-post">
-                        <h3><a href="#">Top Trending Webdesign Front-end Technologies</a></h3>
+                        <h3><a style="cursor:pointer">Top Trending Webdesign Front-end Technologies</a></h3>
                         <div class="meta font-lora mb-3">
                             <a href="#">Webdesign</a>
                             <a href="#">21th August 2019</a>
                         </div>
                         <p style="word-wrap: break-word">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
+                        <div style="display:none"></div>
                     </div>
                     <div class="blog-post">
-                        <h3><a href="#">Top Trending Webdesign Front-end Technologies</a></h3>
+                        <h3><a style="cursor:pointer">Top Trending Webdesign Front-end Technologies</a></h3>
                         <div class="meta font-lora mb-3">
                             <a href="#">Webdesign</a>
                             <a href="#">21th August 2019</a>
                         </div>
                         <p style="word-wrap: break-word">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
+                        <div style="display:none"></div>
                     </div>
                     <!--pagination-->
                     <div class="row justify-content-between align-items-center mb-4">
@@ -243,10 +247,11 @@
                     <div class="blog-widget mb-4">
                         <h6 class="mb-4">文章类型</h6>
                         <div class="list-group list-group-right-arrow">
-                            <a href="#" class="list-group-item bg-light" style="text-decoration:underline;font-style:italic;color: #0C0C0C">房产</a>
-                            <a href="#" class="list-group-item bg-light">地产</a>
-                            <a href="#" class="list-group-item bg-light">车产</a>
-                            <a href="#" class="list-group-item bg-light">什么什么产</a>
+                            <a href="#" class="list-group-item bg-light">车</a>
+                            <a href="#" class="list-group-item bg-light">房子</a>
+                            <a href="#" class="list-group-item bg-light">土地</a>
+                            <a href="#" class="list-group-item bg-light">世界</a>
+                            <a href="#" class="list-group-item bg-light">车子</a>
                         </div>
                     </div>
                     <div class="blog-widget mb-4">
@@ -254,7 +259,8 @@
                         <div class="card border-0 bg-light mb-1">
                             <div class="card-body row align-items-center">
                                 <div class="col-4">
-                                    <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post1.jpg}" alt=""></a>
+                                    <a style="cursor:pointer"><img class="card-img" th:src="@{/assets/img/blog/post1.jpg}" alt=""></a>
+                                    <h5 style="display:none"></h5>
                                 </div>
                                 <div  class="col-8">
                                     <h6 class="my-2 font-size-14"><a href="#">Best UI Design Tip and Tricks</a></h6>
@@ -265,7 +271,8 @@
                         <div class="card border-0 bg-light mb-1">
                             <div class="card-body row align-items-center">
                                 <div class="col-4">
-                                    <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post2.jpg}" alt=""></a>
+                                    <a style="cursor:pointer"><img class="card-img" th:src="@{/assets/img/blog/post2.jpg}" alt=""></a>
+                                    <h5 style="display:none"></h5>
                                 </div>
                                 <div class="col-8">
                                     <h6 class="my-2 font-size-14"><a href="#">Latest JavaScript Frameworks</a></h6>
@@ -276,7 +283,8 @@
                         <div class="card border-0 bg-light mb-1">
                             <div class="card-body row align-items-center">
                                 <div class="col-4">
-                                    <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post3.jpg}" alt=""></a>
+                                    <a style="cursor:pointer"><img class="card-img" th:src="@{/assets/img/blog/post3.jpg}" alt=""></a>
+                                    <h5 style="display:none"></h5>
                                 </div>
                                 <div class="col-8">
                                     <h6 class="my-2 font-size-14"><a href="#">Free Fonts to use in UX</a></h6>
@@ -375,7 +383,7 @@
 <script>
     //page页数，offset开始位置，limit查询个数
     var pageTableRequest={"page":1, "limit":4, "offset":0};
-    var articleQueryDto={};
+    var articleQueryDto={"type":""};
     //用来接收文章
     var articles={};
     //这个用来判断获取数据是否成功了。
@@ -535,7 +543,6 @@
         pageTableRequest.page=Pagination.page;
         //开始处
         pageTableRequest.offset=Pagination.offset;
-
         myajax=$.ajax({
             url: "/main/blog/list",
             dataType:'json',
@@ -551,6 +558,15 @@
         })
     }
 
+    //点击进入点击的文章
+    //传入内容返回articleid
+    function redirectArticle(articleId,callback) {
+        console.log(articleId);
+        location.href = "/main/blog-single-post?id="+articleId;
+    }
+
+
+
     //刷新网页的文章
     function refreshArticle(){
         // myajax 请求完毕时执行
@@ -559,7 +575,7 @@
                 var blog_post=document.getElementsByClassName("blog-post");
                 //最新页面
                 var blog_latest=document.getElementsByClassName("card-body row align-items-center");
-                console.log(blog_post[0]);
+                //console.log(blog_post[0]);
                 for(let i=0;i<blog_post.length;i++){
                     //标题
                     blog_post[i].getElementsByTagName("h3")[0].getElementsByTagName("a")[0].innerText=articles.data[i].title;
@@ -569,14 +585,37 @@
                     blog_post[i].getElementsByTagName("div")[0].getElementsByTagName("a")[1].innerText=articles.data[i].createDate;
                     //简介
                     blog_post[i].getElementsByTagName("p")[0].innerText=articles.data[i].summary;
+                    //用来隐藏储存文章id
+                    blog_post[i].getElementsByTagName("div")[1].innerText=articles.data[i].id;
                 }
+                //最新的文章
                 for(let i=0;i<blog_latest.length;i++){
                     //标题
                     blog_latest[i].getElementsByTagName("div")[1].getElementsByTagName("h6")[0].innerText=articles.data[i].title;
                     //时间
                     blog_latest[i].getElementsByTagName("div")[1].getElementsByTagName("span")[0].innerText=articles.data[i].createDate;
+                    //隐藏的文章id
+                    blog_latest[i].getElementsByTagName("div")[0].getElementsByTagName("h5")[0].innerText=articles.data[i].id;
                 }
+
                 //status=false;
+                //增加每个文章的跳转界面
+                let group=document.getElementsByClassName("blog-post");
+                let articleId="";
+                for(let i=0;i<group.length;i++){
+                    group[i].getElementsByTagName("a")[0].addEventListener('click',function (){
+                        articleId=group[i].getElementsByTagName("div")[1].innerText;
+                        redirectArticle(articleId);
+                    });
+                }
+                //添加最新发布文章的跳转页面
+                for(let i=0;i<blog_latest.length;i++){
+                    blog_latest[i].getElementsByTagName("a")[0].addEventListener("click",function (){
+                        articleId=blog_latest[i].getElementsByClassName("col-4")[0].getElementsByTagName("h5")[0].innerText;
+                        redirectArticle(articleId);
+                    })
+                }
+
         }) ;
     }
 
@@ -602,25 +641,44 @@
 <!--分类文章的逻辑-->
 <script>
 
-
-
-    console.log(document.getElementsByClassName("list-group list-group-right-arrow"));
-    var Latest={
-
-        // 更改页码
-        Click:function(){
-            Pagination.page= +this.innerHTML;
-            Pagination.offset=(Pagination.page-1)*5;
-            Pagination.Start();
+    var Category={
+        nowTag:"",
+        //绑定事件
+        Bind:function(group){
+            for(let i=0;i<group.length;i++){
+                group[i].addEventListener('click',Category.Click);
+            }
         },
 
-
+        // 点击事件
+        Click:function(){
+            Category.nowTag=this.innerText;
+            Category.Start()
+        },
+        //渲染网站，在这里刷新你的article列表
+        Start:function(){
+            let group=document.getElementsByClassName("list-group list-group-right-arrow")[0].getElementsByTagName("a");
+            //这里注意了，后端的type对应的是数字，把对应的数字传进去
+            for(let i=0;i<group.length;i++) {
+                if (group[i].innerText === Category.nowTag) {
+                    //这边i是对应后端的tupe_id
+                    articleQueryDto.type = i + 1;
+                }
+            }
+            getArticleList();
+            refreshArticle();
+    }
     }
 
-    var init=function (){
-
+    var init2=function (){
+        let group=document.getElementsByClassName("list-group list-group-right-arrow")[0].getElementsByTagName("a");
+        Category.Bind(group);
     }
-    document.addEventListener('DOMContentLoaded',init);
+    document.addEventListener('DOMContentLoaded',init2);
+</script>
+
+
+<script>
 </script>
 
 

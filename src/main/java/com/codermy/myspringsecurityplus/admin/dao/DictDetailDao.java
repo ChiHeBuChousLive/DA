@@ -55,7 +55,7 @@ public interface DictDetailDao {
     /**
      *
      * 根据字典id删除字典详情
-     * @param id
+     * @param dictId
      * @return
      */
     @Delete("DELETE from my_dict_detail where dict_id = #{dictId}")

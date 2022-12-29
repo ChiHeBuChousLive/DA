@@ -19,4 +19,12 @@ public interface ArticleForeService {
     Result<ArticleVo> getArticleAll(Integer offectPosition, Integer limit, ArticleQueryDto articleQueryDto);
 
 
+    /**
+     * 根据id返回文章
+     * @param articleId
+     * @return
+     */
+    ArticleVo getArticleById(String articleId);
+
+
 }

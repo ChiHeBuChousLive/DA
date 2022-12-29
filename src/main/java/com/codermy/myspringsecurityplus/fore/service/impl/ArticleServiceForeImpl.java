@@ -63,4 +63,25 @@ public class ArticleServiceForeImpl implements ArticleForeService {
         }
         return Result.ok().count(page.getTotal()).data(articleVos).code(ResultCode.TABLE_SUCCESS);
     }
+
+    @Override
+    public ArticleVo getArticleById(String articleId) {
+        Long id=Long.parseLong(articleId);
+        Article article=articleDao.getArticleById(id);
+        ArticleVo articleVo=new ArticleVo();
+        articleVo.setId(article.getArticleId());
+        articleVo.setTitle(article.getTitle());
+        articleVo.setSummary(article.getSummary());
+        articleVo.setPreciseLocation(article.getPreciseLocation());
+        articleVo.setContact(article.getContact());
+        articleVo.setArea(article.getArea());
+        articleVo.setAuthorId(article.getAuthorId());
+        articleVo.setBodyId(article.getBodyId());
+        articleVo.setType(articleTypeService.getTypeById(article.getTypeId()).getTypeName());
+        articleVo.setFinancialType(articleFinancialTypeService.getFinancialTypeById(article.getFinancialTypeId()).getFinancialTypeName());
+        articleVo.setLocate(articleLocateService.getLocateById(article.getLocateId()).getLocateName());
+        articleVo.setWeight(article.getWeight());
+        articleVo.setCreateDate(article.getCreateDate());
+        return articleVo;
+    }
 }
