@@ -151,8 +151,8 @@
 				<div class="row justify-content-md-center align-items-center text-white py-4 py-lg-5">
 					<div class="col-md-7">
 						<div class="text-center">
-							<h1 class="display-sm-4 display-lg-3">A Single Blog Post Title Goes Here..</h1>
-							<p class="sub-text">Aspernatur at enim excepturi facere in reiciendis</p>
+							<h1 class="display-sm-4 display-lg-3" th:text="${ArticleVo.title}" >A Single Blog Post Title Goes Here..</h1>
+							<p class="sub-text" th:text="${ArticleVo.summary}">Aspernatur at enim excepturi facere in reiciendis</p>
 					  </div>
 					</div>
 				</div>
@@ -166,56 +166,55 @@
                 <div class="blog-post">
                     <a href="#"><img class="rounded mb-lg-4 mb-3" th:src="@{/assets/img/blog/img1.jpg}" alt="card image"></a>
                     <div class="meta font-lora mb-3">
-                        <a href="#">Front-end</a>
-                        <a href="#">29th August 2019</a>
+                        <a href="#" th:text="${ArticleVo.type}" >Front-end</a>
+                        <a href="#" th:text="${ArticleVo.createDate}">29th August 2019</a>
+                        <!--隐藏域接收一下articleBody-->
+                        <input type="hidden" id="hidden" th:value="${ArticleBody}">
+                        <input type="hidden" id="hidden2" th:value="${Tags}">
                     </div>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
 
-					 <p>Mauris aliquam orci elit, a ullamcorper elit rutrum ac. Aliquam erat dolor, tincidunt eu diam eu, ultricies laoreet risus. Morbi consequat lorem eu justo ullamcorper tempor. Nullam suscipit ipsum dapibus commodo fringilla. </p>
-
-					  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
-
-					   <p>Mauris aliquam orci elit, a ullamcorper elit rutrum ac. Aliquam erat dolor, tincidunt eu diam eu, ultricies laoreet risus. Morbi consequat lorem eu justo ullamcorper tempor. Nullam suscipit ipsum dapibus commodo fringilla. </p>
-
-					   <h3>Trending Technologies:</h3>
-					    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
-						 <p>Mauris aliquam orci elit, a ullamcorper elit rutrum ac. Aliquam erat dolor, tincidunt eu diam eu, ultricies laoreet risus. Morbi consequat lorem eu justo ullamcorper tempor. Nullam suscipit ipsum dapibus commodo fringilla. </p>
-
-						 <h3>Fullstack Advantages:</h3>
-					    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat labore libero molestias provident quae </p>
-						 <p>Mauris aliquam orci elit, a ullamcorper elit rutrum ac. Aliquam erat dolor, tincidunt eu diam eu, ultricies laoreet risus. Morbi consequat lorem eu justo ullamcorper tempor. Nullam suscipit ipsum dapibus commodo fringilla. </p>
                 </div>
-               <h6 class="mb-0">Tags:
-                        <a href="#" class="badge badge-pill badge-dark">Fullstack</a>
-                        <a href="#" class="badge badge-pill badge-dark">Front-end</a>
-                        <a href="#" class="badge badge-pill badge-dark">Webdesign</a>
+               <h6 id="tag" class="mb-0">Tags:
+                        <a href="#" class="badge badge-pill badge-dark">xxxxxxx</a>
+                        <a href="#" class="badge badge-pill badge-dark">xxxxxxx</a>
+                        <a href="#" class="badge badge-pill badge-dark">xxxxxxx</a>
+                        <a href="#" class="badge badge-pill badge-dark">xxxxxxx</a>
                     </h6>
 
 					<section class="wt-section mb-0 pb-0">
 					  <!--comments area start-->
                 <div class="comments mb-lg-5 mb-4">
-                    <h2 class="comments-title mb-lg-5 mb-4"> Comments</h2>
+                    <h2 class="comments-title mb-lg-5 mb-4"> 财产 信息</h2>
                     <div class="media">
 					  <img th:src="@{/assets/img/ava/img3.jpg}" class="wt-box-shadow-lg img-fluid img-thumbnail rounded-circle mr-3" alt="...">
 					  <div class="media-body">
-						<h6 class="mt-0">Marcus James</h6> <span>September 2, 2018 at 12:17 pm</span>
-						<p class="text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+						<h6 class="mt-0">财产 位置</h6> <span th:text="${ArticleVo.locate}">September 2, 2018 at 12:17 pm</span>
+						<p class="text-muted" th:text="${ArticleVo.preciseLocation}">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
 
 						<div class="media mt-5">
 						  <a class="mr-3" href="#">
 							<img th:src="@{/assets/img/ava/img2.jpg}" class="wt-box-shadow-lg img-fluid img-thumbnail rounded-circle mr-3" alt="...">
 						  </a>
 						  <div class="media-body">
-							<h6 class="mt-0">Brandon Mark</h6>
-							<p class="text-muted">Cras sit amet nibh libero, in gravida vel metus scelerisque ante sollicitudin.</p>
+							<h6 class="mt-0">联系 方式</h6>
+							<p class="text-muted" th:text="${ArticleVo.contact}">Cras sit amet nibh libero, in gravida vel metus scelerisque ante sollicitudin.</p>
 						  </div>
+                            <div class="media-body">
+                                <h6 class="mt-0">财产 类型</h6>
+                                <p class="text-muted" th:text="${ArticleVo.financialType}">Cras sit amet nibh libero, in gravida vel metus scelerisque ante sollicitudin.</p>
+                            </div>
+                            <div class="media-body">
+                                <h6 class="mt-0">财产 面积</h6>
+                                <p class="text-muted" th:text="${ArticleVo.area}">Cras sit amet nibh libero, in gravida vel metus scelerisque ante sollicitudin.</p>
+                            </div>
 						</div>
 					  </div>
 					</div>
                 </div>
 				<div class="comment-respond mb-lg-5 mb-4">
                     <h3 class="comment-reply-title mb-lg-5 mb-4">
-                        Leave a Comment
+                        联系 我们
                     </h3>
                     <form role="form" class="comment-form">
                         <div class="row">
@@ -264,20 +263,22 @@
                 <div class="blog-widget mb-4">
                     <h6 class="mb-4">Categories</h6>
                     <div class="list-group list-group-right-arrow">
-                        <a href="#" class="list-group-item bg-light">Webdesign (10)</a>
-                        <a href="#" class="list-group-item bg-light">Front-end (22)</a>
-                        <a href="#" class="list-group-item bg-light">Fullstack (12)</a>
-                        <a href="#" class="list-group-item bg-light">UI Design (32)</a>
+                        <a href="#" class="list-group-item bg-light">车</a>
+                        <a href="#" class="list-group-item bg-light">房子</a>
+                        <a href="#" class="list-group-item bg-light">土地</a>
+                        <a href="#" class="list-group-item bg-light">世界</a>
+                        <a href="#" class="list-group-item bg-light">车子</a>
                     </div>
                 </div>
                 <div class="blog-widget mb-4">
-                    <h6 class="mb-4">Latest Post</h6>
+                    <h6 class="mb-4" >最新发布的文章</h6>
                     <div class="card border-0 bg-light mb-1">
                         <div class="card-body row align-items-center">
                             <div class="col-4">
-                                <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post1.jpg}" alt=""></a>
+                                <a style="cursor:pointer"><img class="card-img" th:src="@{/assets/img/blog/post1.jpg}" alt=""></a>
+                                <h5 style="display:none"></h5>
                             </div>
-                            <div class="col-8">
+                            <div  class="col-8">
                                 <h6 class="my-2 font-size-14"><a href="#">Best UI Design Tip and Tricks</a></h6>
                                 <span class="font-size-14 text-muted">12 April 2019</span>
                             </div>
@@ -286,7 +287,8 @@
                     <div class="card border-0 bg-light mb-1">
                         <div class="card-body row align-items-center">
                             <div class="col-4">
-                                <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post2.jpg}" alt=""></a>
+                                <a style="cursor:pointer"><img class="card-img" th:src="@{/assets/img/blog/post2.jpg}" alt=""></a>
+                                <h5 style="display:none"></h5>
                             </div>
                             <div class="col-8">
                                 <h6 class="my-2 font-size-14"><a href="#">Latest JavaScript Frameworks</a></h6>
@@ -297,7 +299,8 @@
                     <div class="card border-0 bg-light mb-1">
                         <div class="card-body row align-items-center">
                             <div class="col-4">
-                                <a href="#"><img class="card-img" th:src="@{/assets/img/blog/post3.jpg}" alt=""></a>
+                                <a style="cursor:pointer"><img class="card-img" th:src="@{/assets/img/blog/post3.jpg}" alt=""></a>
+                                <h5 style="display:none"></h5>
                             </div>
                             <div class="col-8">
                                 <h6 class="my-2 font-size-14"><a href="#">Free Fonts to use in UX</a></h6>
@@ -390,6 +393,117 @@
     <!--Plugin Initialize-->
     <script th:src="@{/assets/js/global.js}"></script>
     <script th:src="@{/assets/vendors/carousel.js}"></script>
+
+   <!--文章刷新代码-->
+    <script>
+        // let url=window.location.href;
+        // console.log(url);
+        // let p=url.split('?')[1];
+        // let params=new URLSearchParams(p);
+        // var articleId=params.get('id');
+        // console.log(articleId);
+        // var blog_title=document.getElementsByClassName("display-sm-4 display-lg-3");
+        //
+        //page页数，offset开始位置，limit查询个数
+        var pageTableRequest={"page":1, "limit":4, "offset":0};
+        var articleQueryDto={"type":""};
+        //用来接收文章
+        var articles={};
+        //获取文章的函数
+        function getArticleList(callback) {
+
+            myajax=$.ajax({
+                url: "/main/blog/list",
+                dataType:'json',
+                //data: {"pageTableRequest":JSON.stringify(pageTableRequest)},
+                data:JSON.stringify({"pageTableRequest":pageTableRequest,"articleQueryDto":articleQueryDto}),
+                type:'post',
+                contentType:"application/json",
+                success:function(result){
+                    articles=result;
+                    console.log(articles);
+                    status=true;
+                }
+            })
+        }
+        //点击进入点击的文章
+        //传入内容返回articleid
+        function redirectArticle(articleId,callback) {
+            location.href = "/main/blog-single-post?id="+articleId;
+        }
+        //传入内容返回database
+        function redirectDataBase(callback) {
+            location.href = "/main/blog";
+        }
+        //刷新网页的文章
+        function refreshArticle(){
+            // myajax 请求完毕时执行
+            $.when(myajax).done(function(){
+                //最新页面
+                var blog_latest=document.getElementsByClassName("card-body row align-items-center");
+                //最新的文章
+                for(let i=0;i<blog_latest.length;i++){
+                    //标题
+                    blog_latest[i].getElementsByTagName("div")[1].getElementsByTagName("h6")[0].innerText=articles.data[i].title;
+                    //时间
+                    blog_latest[i].getElementsByTagName("div")[1].getElementsByTagName("span")[0].innerText=articles.data[i].createDate;
+                    //隐藏的文章id
+                    blog_latest[i].getElementsByTagName("div")[0].getElementsByTagName("h5")[0].innerText=articles.data[i].id;
+                }
+                //添加最新发布文章的跳转页面
+                let articleId="";
+                for(let i=0;i<blog_latest.length;i++){
+                    blog_latest[i].getElementsByTagName("a")[0].addEventListener("click",function (){
+                        articleId=blog_latest[i].getElementsByClassName("col-4")[0].getElementsByTagName("h5")[0].innerText;
+                        redirectArticle(articleId);
+                    })
+                }
+                //添加类型的文章跳转页面
+                let group=document.getElementsByClassName("list-group list-group-right-arrow")[0].getElementsByTagName("a");
+                //这里注意了，后端的type对应的是数字，把对应的数字传进去
+                for(let i=0;i<group.length;i++) {
+                  group[i].addEventListener('click',redirectDataBase);
+                }
+
+            })}
+
+        getArticleList();
+        refreshArticle();
+
+
+        //分段文章的代码
+        //文章
+        var article= document.getElementById("hidden").value.split("contentHtml=")[1];
+        //标签数据
+        var tags = document.getElementById("hidden2").value.split(",");
+        var summary=document.getElementsByClassName("sub-text")[0].innerText;
+        var articleHtml=document.getElementsByClassName("blog-post");
+        articleHtml[0].getElementsByTagName("p")[0].innerText=summary;
+        articleList=article.split("<p>");
+        var tag;
+        var tagHtml=document.getElementById("tag")
+
+        for (let i = 1; i < articleList.length; i++) {
+            let articleText="  "+articleList[i].substring(14);
+            articleText=articleText.substring(0,articleText.length-4);
+            //最后一段多了点东西
+            if (i===articleList.length-1){
+                articleText=articleText.substring(0,articleText.length-17);
+            }
+            let tag=document.createElement('p');
+            tag.style.textIndent="2"
+            tag.innerText=articleText;
+            articleHtml[0].getElementsByTagName("p")[0].parentNode.appendChild(tag);
+        }
+        //渲染tag
+        tagHtml=tagHtml.getElementsByTagName("a");
+        for (let i = 0; i < tags.length; i++) {
+            tagHtml[i].innerText=tags[i];
+        }
+
+
+    </script>
+
 
     <!-- END JAVASCRIPTS -->
   </body>

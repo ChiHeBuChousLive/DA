@@ -79,7 +79,6 @@ com\codermy\myspringsecurityplus\security\dto\JwtUserDto.class
 com\codermy\myspringsecurityplus\admin\DataScopeAspect.class
 com\codermy\myspringsecurityplus\admin\dto\DeptDto.class
 com\codermy\myspringsecurityplus\security\filter\VerifyCodeFilter.class
-com\codermy\myspringsecurityplus\fore\entity\BaseEntity.class
 com\codermy\myspringsecurityplus\fore\entity\ArticleFinancialType.class
 com\codermy\myspringsecurityplus\common\utils\Md5.class
 com\codermy\myspringsecurityplus\security\filter\JwtAuthenticationTokenFilter.class

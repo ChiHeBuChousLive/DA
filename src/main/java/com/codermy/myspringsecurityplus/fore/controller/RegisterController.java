@@ -56,7 +56,7 @@ public class RegisterController {
     //这个controller用来转到登录页面
     public String addUser(Model model){
         model.addAttribute("myUser",new MyUser());
-        return "/register";
+        return "register";
     }
 
 

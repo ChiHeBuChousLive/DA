@@ -20,7 +20,7 @@ public class EditController {
     @ApiOperation(value = "文章编辑页面")
     public String edit(Model model){
         model.addAttribute("articleParam",new ArticleParam());
-        return "/main/edit";
+        return "main/edit";
     }
 
 //    @PostMapping("/post")
