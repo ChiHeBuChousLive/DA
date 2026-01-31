@@ -1,7 +1,7 @@
 # DA
 
 #### 介绍
-A brochure site built for a small law firm. some practice.
+A promotional landing page for a small law firm. Created as a coding exercise.
 
 
 #### 软件架构
